@@ -1,7 +1,7 @@
 alias julia='~/Documents/julia/julia'
 alias jupyter='~/.local/bin/jupyter-notebook'
 
-alias dotfile='/usr/bin/git --git-dir=~/.myconfig/ --work-tree=~/'
+alias dotfile='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME/'
 alias lal='ls -al'
 alias ds4='sudo ds4drv --hidraw --config ~/.config/ds4drv.conf'
 
