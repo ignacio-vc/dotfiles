@@ -18,7 +18,9 @@ au!
 
 " {{{ VUNDLE SETUP
 
+" enter the current millenium
 set nocompatible
+
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -233,7 +235,8 @@ let NERDTreeWinSize=20
 " {{{ netrw: Configuration
 "     ====================
 
-let g:netrw_banner=0        " disable banner
+" Tweaks for browsing
+let g:netrw_banner=0        " disable annoying banner
 let g:netrw_browse_split=4  " open in prior window
 let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
@@ -241,6 +244,8 @@ let g:netrw_liststyle=3     " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
 " hide dotfiles by default (this is the string toggled by netrw-gh)
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+
+" Now we can :edit a folder to open a file browser, <CR>/v/t to open in an h-split/v-split/tab
 
 " }}}
 
@@ -262,6 +267,8 @@ set modelines=2
 set modeline
 
 " For clever completion with the :find command
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
 set path+=**
 
 " Always use bash syntax for sh filetype
@@ -276,6 +283,7 @@ set grepprg=grep\ -IrsnH
 
 " Window display
 set showcmd ruler laststatus=2
+set number
 
 " Splits
 set splitright
@@ -298,6 +306,10 @@ set list
 set backspace=indent,eol,start
 set showmatch
 set wildmode=full
+" Display all matching files when we tab complete
+" Now we can hit tab ":find by partial match and use * to make it fuzzy
+" :ls shows buffer of files that already open
+" :b lets you autocomplete any open buffer"
 set wildmenu
 set complete-=i
 
@@ -383,6 +395,9 @@ endif
 
 " Key Mappings {{{
 
+" Set leader key
+let mapleader = ","
+
 " Run shell command
 " ... and print output
 nnoremap <C-h> :.w !bash<CR>
@@ -421,17 +436,22 @@ nnoremap ,d :silent !reattach-to-user-namespace -l open -a Deckset.app %<CR>:red
 " Sane pasting
 command! Paste call SmartPaste()
 
+" Create the 'tags' file
+command! MakeTags !ctags -R .
+" Now we can use ^] to jump to tag under cursor, g^] for ambiguous tags, ^t to
+" jump back up the tag stack
+
 " De-fuckify whitespace
 nnoremap <F4> :retab<CR>:%s/\s\+$//e<CR><C-o>
 
-" De-fuckify syntax hilighting
+" De-fuckify syntax highlighting
 nnoremap <F3> :syn sync fromstart<CR>
 
 " Editing vimrc
 nnoremap ,v :source $MYVIMRC<CR>
 nnoremap ,e :edit $MYVIMRC<CR>
 
-" Quickly change search hilighting
+" Quickly change search highlighting
 nnoremap <silent> ; :set invhlsearch<CR>
 
 " Change indent continuously
