@@ -1,6 +1,6 @@
 [alias]
-	addremove = !git r && git add . --all
-	aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ \t => \\2/' | sort
+  addremove = !git r && git add . --all
+  aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ \t => \\2/' | sort
   all = add . --all
   amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
   br = branch -av
@@ -26,19 +26,19 @@
   trim = !git reflog expire --expire=now --all && git gc --prune=now
 
 [credential]
-	helper = cache --timeout=3600
+  helper = cache --timeout=3600
 
 [color]
-	ui = true
+  ui = true
 		
 [color "branch"]
-	current = yellow reverse
+  current = yellow reverse
   local = yello
   remote = green
 
 [color "diff"]
   meta = yellow bold
-	frag = magenta bold
+  frag = magenta bold
   old = red bold
   new = green bold
 
@@ -73,5 +73,5 @@
   insteadOf = gist:
 
 [user]
-	name = Ignacio Vargas Cordero
-	email = igvacor94@gmail.com
+  name = Ignacio Vargas Cordero
+  email = igvacor94@gmail.com
