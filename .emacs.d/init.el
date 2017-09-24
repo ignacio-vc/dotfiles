@@ -9,3 +9,13 @@
 
 (require 'evil)
 (evil-mode t)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-when-compile
+  (require 'use-package))
+
+(use-package markdown-mode
+  :ensure t)
