@@ -919,6 +919,8 @@ endfunction
 
 " }}}
 
+" {{{ Extend Right
+
 function! ExtendRight()
     let l:start=winnr()
     exe "normal \<c-w>l"
@@ -929,6 +931,8 @@ function! ExtendRight()
     vsplit
     exe "b " . l:shrink
 endfunction
+
+" }}}
 
 " }}}
 
