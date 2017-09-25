@@ -1,3 +1,15 @@
+;;; init.el -- Ignacio Vargas' Emacs configuration
+;-*-Emacs-Lisp-*-
+
+;;; Commentary:
+;;
+;; Largely inspired (stolen) from aaronbieber's init.el
+;; https://github.com/aaronbieber/dotfiles/
+;;
+;;; Code:
+
+(package-initialize)
+
 (require 'package)
 
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
@@ -5,10 +17,14 @@
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 
 (setq package-enable-at-startup nil)
-(package-initialize)
 
-(require 'evil)
-(evil-mode t)
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'custom-theme-load-path (expand-file-name "themes" user-emacs-directory))
+(add-to-list 'exec-path "/usr/local/bin")
+
+;; Don't litter my init file
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file 'noerror)
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -17,23 +33,22 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package evil-org
-  :ensure t
-  :after org
-  :config
-  (add-hook 'org-mode-hook 'evil-org-mode)
-  (add-hook 'evil-org-mode-hook
-            (lambda ()
-              (evil-org-set-key-theme))))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (evil-org use-package monitor evil))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; Backups
+(defvar backup-dir "~/.emacs.d/backups/")
+(setq backup-directory-alist (list (cons "." backup-dir)))
+(setq make-backup-files nil)
+
+(use-package evil
+  :ensure t)
+
+(use-package helm
+  :ensure t)
+
+(use-package markdown-mode
+  :ensure t)
+
+(use-package dictionary :ensure t)
+
+(provide 'init)
+
+;;; init.el ends here
