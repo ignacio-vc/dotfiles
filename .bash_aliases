@@ -1,9 +1,4 @@
-alias julia='~/Documents/julia/julia'
-alias jupyter='~/.local/bin/jupyter-notebook'
-
 alias dotfile='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME/'
-alias lal='ls -al'
-alias ds4='sudo ds4drv --hidraw --config ~/.config/ds4drv.conf'
 
 alias sau='sudo aptitude update'
 alias sai='sudo aptitude install'
@@ -18,5 +13,14 @@ alias sup='sau && safe && sac'
 alias eyy='sau && full && sac'
 
 alias off='sudo shutdown -h now'
-
 alias bye='eyy && off' 
+
+alias julia='~/Documents/julia/julia'
+alias jupyter='~/.local/bin/jupyter-notebook' 
+alias path='echo $PATH | tr ":" "\n"'
+alias vi='vim'
+alias :e='vim'
+alias ,e='vim $HOME/.vimrc'
+alias :q='logout'
+alias which='type -a'
+alias wget='wget --content-disposition'
