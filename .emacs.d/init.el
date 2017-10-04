@@ -50,18 +50,22 @@
     :config
     (global-evil-leader-mode))
 
-  (use-package evil-jumper
-    :ensure t
-    :config
-    (global-evil-jumper-mode))
-
-  (use-package evil-surround
+    (use-package evil-surround
     :ensure t
     :config
     (global-evil-surround-mode))
 
   (use-package evil-indent-textobject
     :ensure t))
+
+(use-package evil-org
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme))))
 
 (dolist (mode '(ag-mode
                 flycheck-error-list-mode
