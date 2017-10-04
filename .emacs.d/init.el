@@ -87,7 +87,7 @@
 (setq org-todo-keywords
       '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
 
-(setq org-agenda-files '("~/Documents/org/"))
+(setq org-agenda-files '("~/Dropbox/org/"))
 
 (defun air-pop-to-org-agenda (split)
   "Visit the org agenda, in the current window or a SPLIT."
