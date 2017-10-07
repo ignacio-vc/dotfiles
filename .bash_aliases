@@ -9,8 +9,8 @@ alias sac='sudo aptitude autoclean'
 alias safe='sudo aptitude safe-upgrade'
 alias full='sudo aptitude full-upgrade'
 
-alias sup='sau && safe && sac'
-alias eyy='sau && full && sac'
+alias sup='sau && safe'
+alias eyy='sau && full'
 
 alias off='sudo shutdown -h now'
 alias bye='eyy && off' 
