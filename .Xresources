@@ -46,6 +46,7 @@ URxvt.matcher.button:	1
 URxvt.resize-font.smaller:	C-Down
 URxvt.resize-font.bigger:	C-Up
 URxvt.colorUL: #4682B4
+
 URxvt.font:	xft:Inconsolata-g:size=12:antialias=true:hinting=true
 
 
