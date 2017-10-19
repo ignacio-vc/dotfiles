@@ -106,4 +106,6 @@
 
 (provide 'init)
 
+(set-default-font "Inconsolata-g-12")
+
 ;;; init.el ends here
