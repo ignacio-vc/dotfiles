@@ -24,3 +24,5 @@ alias ,e='vim $HOME/.vimrc'
 alias :q='logout'
 alias which='type -a'
 alias wget='wget --content-disposition'
+
+alias dirs='dirs -v'
