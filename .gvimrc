@@ -1,1 +1,2 @@
-set guifont=Terminus\ Regular\ 11
+set anti guifont=Inconsolata-g\ 12
+colorscheme hhdgray
