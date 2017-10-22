@@ -1,48 +1,37 @@
-# vim: filetype=i3
-# Ignacio Vargas' i3-gaps configuration file
-# Inspired by Alex Booker's and Luke Smith's i3 config files
+# Ignacio Vargas' i3-gaps config
 
 set $mod Mod4
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:monospace 8
+# Font for window titles
+font pango:Inconsolata-g 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+Return exec urxvt -e tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+# start rofi
+bindsym $mod+d exec rofi -show run
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+h split h
+# jplit in horizontal orientation
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -51,9 +40,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -106,10 +95,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -130,63 +119,201 @@ bar {
         status_command i3status
 }
 
+# Start composite manager
+exec --no-startup-id compton
+
+# Launch polybar
+#exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# Wallpaper
+exec_always --no-startup-id feh --bg-scale ~/.config/wall
+#exec_always --no-startup-id wal -c -i ~/.config/wall
+
+# Unclutter makes the mouse invisible after a brief period
+exec --no-startup-id unclutter
+
+# Disables touchpad
+exec --no-startup-id exec synclient TouchpadOff=1
+
+bindsym $mod+x exec --no-startup-id ~/.config/i3/lock.sh
+bindsym $mod+Shift+x exec sudo shutdown -h now
+
+##---Media Keys---###
+
+#Volume keys
+bindsym $mod+plus exec $inc
+bindsym $mod+Shift+plus        exec $biginc
+bindsym $mod+minus         exec $dec
+bindsym $mod+Shift+minus   exec $bigdec
+bindsym $mod+less      exec $prev
+bindsym $mod+Shift+less        exec $beg
+bindsym $mod+greater       exec $next
+bindsym $mod+Shift+greater exec $next
+
+#For advancing forward/backward in an mpd song
+bindsym $mod+bracketleft   exec $lilbak
+bindsym $mod+Shift+bracketleft     exec $bigbak
+bindsym $mod+bracketright  exec $lilfor
+bindsym $mod+Shift+bracketright exec $bigfor
+
+#Print screen takes a screenshot.
+#With shift, it takes one only of the given window.
+bindsym Print          exec --no-startup-id scrot
+bindsym Shift+Print        exec --no-startup-id scrot -u
+
+#For recording audio/video or stop recording. Also screenkey for visual typing.
+bindsym $mod+Print     exec --no-startup-id screenkey
+bindsym $mod+Scroll_Lock   exec $audio
+bindsym $mod+Insert        exec $screencast
+bindsym $mod+Pause     exec $video
+bindsym $mod+Delete        exec $stoprec
+bindsym XF86Launch1        exec $stoprec
+
+###---Extra XF86 Keys---###
+#These are the extra media keys that some keyboards have.
+bindsym XF86AudioMute      exec $mute
+bindsym XF86AudioLowerVolume   exec $dec
+bindsym XF86AudioRaiseVolume   exec $inc
+bindsym XF86PowerOff       exec sudo shutdown -h now
+#bindsym XF86Copy      exec
+#bindsym XF86Open      exec
+#bindsym XF86Paste     exec
+#bindsym XF86Cut       exec
+#bindsym XF86MenuKB        exec
+bindsym XF86Calculator     exec $term -e R -q
+bindsym XF86Sleep      exec sudo zzz
+#bindsym XF86WakeUp        exec
+bindsym XF86Explorer       exec $term -e ranger
+#bindsym XF86Send      exec
+#bindsym XF86Xfer      exec
+bindsym XF86WWW            exec --no-startup-id $BROWSER
+#bindsym XF86DOS       exec
+bindsym XF86ScreenSaver        exec exec --no-startup-id ~/.config/i3/lock.sh
+#bindsym XF86RotateWindows exec
+#bindsym XF86TaskPane      exec
+#bindsym XF86Favorites     exec
+bindsym XF86MyComputer     exec $term -e ranger
+#bindsym XF86Back      exec
+#bindsym XF86Forward       exec
+bindsym XF86Eject      exec sudo umount -R /mnt
+bindsym XF86AudioNext      exec $next
+bindsym XF86AudioPlay      exec $pause
+bindsym XF86AudioPrev      exec $prev
+bindsym XF86AudioStop      exec $pause
+bindsym XF86AudioRecord        exec $audio
+bindsym XF86AudioRewind        exec $lilbak
+bindsym XF86AudioForward   exec $lilfor
+#bindsym XF86Phone     exec
+#bindsym XF86Tools     exec
+bindsym XF86HomePage       exec $BROWSER https://lukesmith.xyz
+bindsym XF86Reload     restart
+#bindsym XF86ScrollUp      exec
+#bindsym XF86ScrollDown        exec
+#bindsym XF86New       exec
+#bindsym XF86LaunchA       exec
+#bindsym XF86LaunchB       exec
+#bindsym XF86Launch2       exec
+#bindsym XF86Launch3       exec
+#bindsym XF86Launch4       exec
+#bindsym XF86Launch5       exec
+#bindsym XF86Launch6       exec
+#bindsym XF86Launch7       exec
+#bindsym XF86Launch8       exec
+#bindsym XF86Launch9       exec
+bindsym XF86AudioMicMute   exec $micmute
+#bindsym XF86TouchpadToggle    exec
+bindsym XF86TouchpadOn     exec --no-startup-id exec synclient TouchpadOff=0
+bindsym XF86TouchpadOff        exec --no-startup-id exec synclient TouchpadOff=1
+bindsym XF86Suspend        exec --no-startup-id ~/.config/i3/lock.sh
+bindsym XF86Close      kill
+bindsym XF86WebCam     exec mpv /dev/video0
+bindsym XF86Mail       exec $term -e mutt
+bindsym XF86Messenger      exec $term -e weechat
+bindsym XF86Search     exec $BROWSER https://duckduckgo.com
+#bindsym XF86Go            exec
+#bindsym XF86Finance       exec
+#bindsym XF86Game      exec
+bindsym XF86Shop       exec $BROWSER https://ebay.com
+bindsym XF86MonBrightnessDown  exec --no-startup-id xbacklight -dec 15
+bindsym XF86MonBrightnessUp    exec --no-startup-id xbacklight -inc 15
+bindsym XF86AudioMedia     exec $music
+bindsym XF86Display        exec --no-startup-id arandr
+#bindsym XF86KbdLightOnOff exec
+bindsym XF86KbdBrightnessDown  exec --no-startup-id xbacklight -dec 15
+bindsym XF86KbdBrightnessUp    exec --no-startup-id xbacklight -inc 15
+#bindsym XF86Reply     exec
+#bindsym XF86MailForward   exec
+#bindsym XF86Save      exec
+bindsym XF86Documents      exec $term -e ranger ~/Documents
+#bindsym XF86Battery       exec
+#bindsym XF86Bluetooth     exec
+bindsym XF86WLAN exec --no-startup-id sudo systemctl restart NetworkManager
+
 ### i3-gaps stuff ###
 
 # Necessary for i3-gaps to work properly (pixel can be any value)
-for_window [class="^.*"] border pixel 3
+hide_edge_borders both
+for_window [class="^.*"] border pixel 0
+#for_window [class="^.*"] border pixel 3
+
 # Smart Gaps
 smart_gaps on
+
 # Smart Borders
 smart_borders on
+
 # Some color adjustments
 client.focused_inactive #000000 #000000 #000000 #000000 #000000
 client.unfocused        #000000 #000000 #000000 #000000 #000000
+
 # Set inner/outer gaps
-gaps inner 12
-gaps outer -2
+#gaps inner 12
+#gaps outer -2
+gaps inner 15
+gaps outer 15
+
 # Gaps mode
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "\$mode_gaps"
-mode "\$mode_gaps" {
-        bindsym o      mode "\$mode_gaps_outer"
-        bindsym i      mode "\$mode_gaps_inner"
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-mode "\$mode_gaps_inner" {
+
+mode "$mode_gaps_inner" {
         bindsym plus  gaps inner current plus 5
         bindsym minus gaps inner current minus 5
         bindsym 0     gaps inner current set 0
+
         bindsym Shift+plus  gaps inner all plus 5
         bindsym Shift+minus gaps inner all minus 5
         bindsym Shift+0     gaps inner all set 0
+
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-mode "\$mode_gaps_outer" {
+
+mode "$mode_gaps_outer" {
         bindsym plus  gaps outer current plus 5
         bindsym minus gaps outer current minus 5
         bindsym 0     gaps outer current set 0
+
         bindsym Shift+plus  gaps outer all plus 5
         bindsym Shift+minus gaps outer all minus 5
         bindsym Shift+0     gaps outer all set 0
+
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 
-### Starting External Scripts ###
-
-#Composite manager:
-#exec --no-startup-id compton
-exec --no-startup-id xcompmgr -slt
-#Add wallpaper:
-exec_always --no-startup-id feh --bg-scale ~/.config/pape.jpg
-#exec_always --no-startup-id wal -c -i ~/.config/pape.jpg
-#Unclutter makes the mouse invisible after a brief period
-exec --no-startup-id unclutter
-#Disables touchpad; you might like like this one! (I only use the ThinkPad trackpoint).
-#exec --no-startup-id exec synclient TouchpadOff=1
-
-bindsym $mod+d			exec rofi -show run
+bindsym $mod+Shift+t gaps inner current set 15; gaps outer current set 15
+bindsym $mod+s gaps inner current plus 5
+bindsym $mod+Shift+s gaps inner current minus 5
+bindsym $mod+Shift+d gaps inner current set 0; gaps outer current set 0
+bindsym $mod+z gaps outer current plus 5
+bindsym $mod+Shift+z gaps outer current minus 5
