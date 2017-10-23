@@ -19,6 +19,7 @@ alias nope='sudo aptitude forbid-version'
 # CLI
 ## Shorthand to interact with commands previously typed
 ### Remember you can also use things like !, !!, and !*
+alias g='grep'
 alias h='history'
 alias hg='history | grep'
 alias ie='alias'
@@ -44,7 +45,7 @@ alias ll='ls -hlAFX --group-directories-first'
 ### https://github.com/Snaipe/dot-git
 alias dot='/usr/bin/git --git-dir=$HOME/.config/dotgit --work-tree=$HOME/'
 
-# File Editing + Configurations (13)
+# File Editing + Configurations (14)
 ## For text editing
 alias ,a=':e $HOME/.bash_aliases'
 alias ,p=':e $HOME/.bash_profile'
@@ -53,6 +54,7 @@ alias ,i=':e $HOME/.config/i3/config'
 alias ,c=':e $HOME/.config/compton.conf'
 alias ,e=':e $HOME/.emacs.d/init.el'
 alias ,g=':e $HOME/.gitconfig'
+alias ,n=':e $HOME/.gitignore'
 alias ,vg=':e $HOME/.gvimrc'
 alias ,s=':e $HOME/.ssh/config'
 alias ,t=':e $HOME/.tmux.conf'
@@ -77,7 +79,7 @@ alias jupyter='$HOME/.local/bin/jupyter-notebook'
 alias r='ranger'
 
 # Safety Nets
-## Nuclear disarmament. Prevents tears
+## Nuclear disarmament. Prevents me from accidentally the whole thing.
 ### rm and ch commands are changed because I don't
 ### want to get used to the vanilla ones being safe on
 ### my computers and then killing someone else's because
