@@ -7,3 +7,7 @@
 [user]
     name = Ignacio Vargas Cordero
     email = igvacor94@gmail.com
+
+[remote "origin"]
+    url = https://github.com/ignacio-vc/dotfiles.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
