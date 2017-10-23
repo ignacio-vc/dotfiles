@@ -1,2 +1,2 @@
-set anti guifont=Inconsolata-g\ 12
-colorscheme hhdgray
+set guifont=Inconsolata-g\ 12
+color solarized
