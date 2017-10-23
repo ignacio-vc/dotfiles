@@ -1,286 +1,206 @@
+# vim: filetype=i3
 # Ignacio Vargas' i3-gaps config
 
 # Constants
-
 set $mod Mod4
+set $ws1                        "1"
+set $ws2                        "2"
+set $ws3                        "3"
+set $ws4                        "4"
+set $ws5                        "5"
+set $ws6                        "6"
+set $ws7                        "7"
+set $ws8                        "8"
+set $ws9                        "9"
+set $ws10                       "10"
+set $inc                        --no-startup-id amixer sset Master 2%+
+set $biginc                     --no-startup-id amixer sset Master 5%+
+set $dec                        --no-startup-id amixer sset Master 2%-
+set $bigdec                     --no-startup-id amixer sset Master 5%-
+set $mute                       --no-startup-id amixer sset Master toggle
+set $bg-color                   #2f343f
+#set $inactive-bg-color         #2f343f
+#set $text-color                #f3f4f5
+#set $inactive-text-color       #676E7D
+#set $urgent-bg-color           #E53935
 
-set $workspace1 "1:"
+# General Configuration
+font pango:                     Inconsolata-g 11
+floating_modifier               $mod
 
-# Font for window titles
-font pango: Inconsolata-g, FontAwesome 11
+# Window Bindings
+bindsym $mod+Shift+q            kill
+bindsym $mod+h                  focus left
+bindsym $mod+j                  focus down
+bindsym $mod+k                  focus up
+bindsym $mod+l                  focus right
+bindsym $mod+Left               focus left
+bindsym $mod+Down               focus down
+bindsym $mod+Up                 focus up
+bindsym $mod+Right              focus right
+bindsym $mod+Shift+h            move left
+bindsym $mod+Shift+j            move down
+bindsym $mod+Shift+k            move up
+bindsym $mod+Shift+l            move right
+bindsym $mod+Shift+Left         move left
+bindsym $mod+Shift+Down         move down
+bindsym $mod+Shift+Up           move up
+bindsym $mod+Shift+Right        move right
+## split along X axis
+bindsym $mod+x                  split v
+## split along Y axis
+bindsym $mod+y                  split h
+bindsym $mod+f                  fullscreen toggle
+#bindsym $mod+s                 layout stacking
+bindsym $mod+w                  layout tabbed
+bindsym $mod+e                  layout toggle split
+bindsym $mod+Shift+space        floating toggle
+bindsym $mod+space focus        mode_toggle
+bindsym $mod+q                  focus parent
+bindsym $mod+a                  focus child
+bindsym $mod+r                  mode "resize"
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-# start a terminal
-bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return exec urxvt -e tmux
-
-# kill focused window
-bindsym $mod+Shift+q kill
-
-# start rofi
-bindsym $mod+d exec rofi -show run
-
-# change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-# split along Y axis
-bindsym $mod+y split h
-
-# split along X axis
-bindsym $mod+x split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+q focus parent
-
-# focus the child container
-bindsym $mod+a focus child
-
-# switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-# resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym h                   resize shrink width 10 px or 10 ppt
+    bindsym j                   resize grow height 10 px or 10 ppt
+    bindsym k                   resize shrink height 10 px or 10 ppt
+    bindsym l                   resize grow width 10 px or 10 ppt
+    bindsym Left                resize shrink width 10 px or 10 ppt
+    bindsym Down                resize grow height 10 px or 10 ppt
+    bindsym Up                  resize shrink height 10 px or 10 ppt
+    bindsym Right               resize grow width 10 px or 10 ppt
+    bindsym Return              mode "default"
+    bindsym Escape              mode "default"
 }
 
-bindsym $mod+r mode "resize"
+# Restart Bindings
+bindsym $mod+Shift+c            reload
+bindsym $mod+Shift+r            restart
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Program Bindings
+bindsym $mod+Shift+f            exec firefox
+bindsym $mod+Return             exec urxvt
+bindsym $mod+Shift+Return       exec urxvt -e tmux
+bindsym $mod+d                  exec rofi -show run
+bindsym $mod+Shift+e            exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+shift+x            exec i3lock --color "$bg-color"
+bindsym Print                   exec --no-startup-id scrot
+bindsym Shift+Print             exec --no-startup-id scrot -u
+
+# Volume & Media Bindings
+bindsym XF86AudioMute           exec $mute
+bindsym XF86AudioLowerVolume    exec $dec
+bindsym XF86AudioRaiseVolume    exec $inc
+bindsym XF86AudioPlay           exec $pause
+bindsym XF86AudioStop           exec $pause
+bindsym XF86AudioNext           exec $next
+bindsym XF86AudioPrev           exec $prev
+bindsym XF86AudioMicMute        exec $micmute
+#bindsym XF86AudioRaiseVolume   exec --no-startup-id pactl set-sink-volume 0 +10% #increase sound volume
+#bindsym XF86AudioLowerVolume   exec --no-startup-id pactl set-sink-volume 0 -10% #decrease sound volume
+#bindsym XF86AudioMute          exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+#bindsym XF86AudioPlay          exec playerctl play
+#bindsym XF86AudioPause         exec playerctl pause
+#bindsym XF86AudioNext          exec playerctl next
+#bindsym XF86AudioPrev          exec playerctl previous
+
+# Workspace Bindings
+bindsym $mod+1                  workspace $ws1
+bindsym $mod+2                  workspace $ws2
+bindsym $mod+3                  workspace $ws3
+bindsym $mod+4                  workspace $ws4
+bindsym $mod+5                  workspace $ws5
+bindsym $mod+6                  workspace $ws6
+bindsym $mod+7                  workspace $ws7
+bindsym $mod+8                  workspace $ws8
+bindsym $mod+9                  workspace $ws9
+bindsym $mod+0                  workspace $ws10
+bindsym $mod+Shift+1            move container to workspace $ws1
+bindsym $mod+Shift+2            move container to workspace $ws2
+bindsym $mod+Shift+3            move container to workspace $ws3
+bindsym $mod+Shift+4            move container to workspace $ws4
+bindsym $mod+Shift+5            move container to workspace $ws5
+bindsym $mod+Shift+6            move container to workspace $ws6
+bindsym $mod+Shift+7            move container to workspace $ws7
+bindsym $mod+Shift+8            move container to workspace $ws8
+bindsym $mod+Shift+9            move container to workspace $ws9
+bindsym $mod+Shift+0            move container to workspace $ws10
+
+# Program Workspaces
+assign [class="Firefox"]        $ws1
+assign [class="Spotify"]        $ws10
+
+# Floating by default
+for_window [class="Lxappearance"] floating enable
+
+# Startup Programs
 bar {
-        status_command i3status
+    font pang: Inconsolata-g, FontAwesome 11
+    status_command i3status
 }
-
-# Start composite manager
 exec --no-startup-id compton
-
-# Launch polybar
-#exec_always --no-startup-id ~/.config/polybar/launch.sh
-
-# Wallpaper
-exec_always --no-startup-id feh --bg-scale ~/.config/test.jpg
-#exec_always --no-startup-id wal -c -i ~/.config/wall
-
-# Unclutter makes the mouse invisible after a brief period
 exec --no-startup-id unclutter
+exec pulseaudio --start
+exec amixer sset Master 100%
+exec_always --no-startup-id feh --bg-scale ~/.config/test.jpg
 
-# Disables touchpad
-exec --no-startup-id exec synclient TouchpadOff=1
-
-##---Media Keys---###
-
-#Volume keys
-bindsym $mod+plus exec $inc
-bindsym $mod+Shift+plus        exec $biginc
-bindsym $mod+minus         exec $dec
-bindsym $mod+Shift+minus   exec $bigdec
-bindsym $mod+less      exec $prev
-bindsym $mod+Shift+less        exec $beg
-bindsym $mod+greater       exec $next
-bindsym $mod+Shift+greater exec $next
-
-#For advancing forward/backward in an mpd song
-bindsym $mod+bracketleft   exec $lilbak
-bindsym $mod+Shift+bracketleft     exec $bigbak
-bindsym $mod+bracketright  exec $lilfor
-bindsym $mod+Shift+bracketright exec $bigfor
-
-#Print screen takes a screenshot.
-#With shift, it takes one only of the given window.
-bindsym Print          exec --no-startup-id scrot
-bindsym Shift+Print        exec --no-startup-id scrot -u
-
-#For recording audio/video or stop recording. Also screenkey for visual typing.
-bindsym $mod+Print     exec --no-startup-id screenkey
-bindsym $mod+Scroll_Lock   exec $audio
-bindsym $mod+Insert        exec $screencast
-bindsym $mod+Pause     exec $video
-bindsym $mod+Delete        exec $stoprec
-bindsym XF86Launch1        exec $stoprec
-
-###---Extra XF86 Keys---###
-bindsym XF86AudioMute      exec $mute
-bindsym XF86AudioLowerVolume   exec $dec
-bindsym XF86AudioRaiseVolume   exec $inc
-bindsym XF86PowerOff       exec sudo shutdown -h now
-bindsym XF86MenuKB        exec
-bindsym XF86Calculator     exec $term -e R -q
-bindsym XF86Sleep      exec sudo zzz
-bindsym XF86Explorer       exec $term -e ranger
-bindsym XF86WWW            exec --no-startup-id $BROWSER
-bindsym XF86ScreenSaver        exec exec --no-startup-id ~/.config/i3/lock.sh
-bindsym XF86Favorites     exec
-bindsym XF86MyComputer     exec $term -e ranger
-bindsym XF86Eject      exec sudo umount -R /mnt
-bindsym XF86AudioNext      exec $next
-bindsym XF86AudioPlay      exec $pause
-bindsym XF86AudioPrev      exec $prev
-bindsym XF86AudioStop      exec $pause
-bindsym XF86AudioRecord        exec $audio
-bindsym XF86AudioRewind        exec $lilbak
-bindsym XF86AudioForward   exec $lilfor
-bindsym XF86HomePage       exec $BROWSER https://lukesmith.xyz
-bindsym XF86Reload     restart
-bindsym XF86Launch9       exec
-bindsym XF86AudioMicMute   exec $micmute
-bindsym XF86TouchpadOn     exec --no-startup-id exec synclient TouchpadOff=0
-bindsym XF86TouchpadOff        exec --no-startup-id exec synclient TouchpadOff=1
-bindsym XF86Suspend        exec --no-startup-id ~/.config/i3/lock.sh
-bindsym XF86Close      kill
-bindsym XF86WebCam     exec mpv /dev/video0
-bindsym XF86Mail       exec $term -e mutt
-bindsym XF86Messenger      exec $term -e weechat
-bindsym XF86Search     exec $BROWSER https://duckduckgo.com
-bindsym XF86Game      exec
-bindsym XF86Shop       exec $BROWSER https://ebay.com
-bindsym XF86MonBrightnessDown  exec --no-startup-id xbacklight -dec 15
-bindsym XF86MonBrightnessUp    exec --no-startup-id xbacklight -inc 15
-bindsym XF86AudioMedia     exec $music
-bindsym XF86Display        exec --no-startup-id arandr
-bindsym XF86KbdBrightnessDown  exec --no-startup-id xbacklight -dec 15
-bindsym XF86KbdBrightnessUp    exec --no-startup-id xbacklight -inc 15
-bindsym XF86Save      exec
-bindsym XF86Documents      exec $term -e ranger ~/Documents
-bindsym XF86Bluetooth     exec
-bindsym XF86WLAN exec --no-startup-id sudo systemctl restart NetworkManager
 
 ### i3-gaps stuff ###
 
-# Necessary for i3-gaps to work properly (pixel can be any value)
-hide_edge_borders both
-for_window [class="^.*"] border pixel 0
-#for_window [class="^.*"] border pixel 3
-
-# Smart Gaps
-smart_gaps on
-
-# Smart Borders
-smart_borders on
-
-# Some color adjustments
-client.focused_inactive #000000 #000000 #000000 #000000 #000000
-client.unfocused        #000000 #000000 #000000 #000000 #000000
-
-# Set inner/outer gaps
-#gaps inner 12
-#gaps outer -2
-gaps inner 15
-gaps outer 15
+hide_edge_borders               both
+for_window [class="^.*"]        border pixel 0
+#for_window [class="^.*"]       border pixel 3
+smart_gaps                      on
+smart_borders                   on
+client.focused_inactive         #000000 #000000 #000000 #000000 #000000
+client.unfocused                #000000 #000000 #000000 #000000 #000000
+gaps inner                      15
+gaps outer                      15
+#gaps inner                     12
+#gaps outer                     -2
 
 # Gaps mode
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+set $mode_gaps                  Gaps: (o) outer, (i) inner
+set $mode_gaps_outer            Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner            Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g            mode "$mode_gaps"
 
 mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym o                   mode "$mode_gaps_outer"
+    bindsym i                   mode "$mode_gaps_inner"
+    bindsym Return              mode "default"
+    bindsym Escape              mode "default"
 }
 
 mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
+    bindsym plus                gaps inner current plus 5
+    bindsym minus               gaps inner current minus 5
+    bindsym 0                   gaps inner current set 0
 
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
+    bindsym Shift+plus          gaps inner all plus 5
+    bindsym Shift+minus         gaps inner all minus 5
+    bindsym Shift+0             gaps inner all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Return              mode "default"
+    bindsym Escape              mode "default"
 }
 
 mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
+    bindsym plus                gaps outer current plus 5
+    bindsym minus               gaps outer current minus 5
+    bindsym 0                   gaps outer current set 0
 
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
+    bindsym Shift+plus          gaps outer all plus 5
+    bindsym Shift+minus         gaps outer all minus 5
+    bindsym Shift+0             gaps outer all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Return mode         "default"
+    bindsym Escape mode         "default"
 }
 
-bindsym $mod+Shift+t gaps inner current set 15; gaps outer current set 15
-bindsym $mod+s gaps inner current plus 5
-bindsym $mod+Shift+s gaps inner current minus 5
-bindsym $mod+Shift+d gaps inner current set 0; gaps outer current set 0
-bindsym $mod+z gaps outer current plus 5
-bindsym $mod+Shift+z gaps outer current minus 5
+bindsym $mod+Shift+t            gaps inner current set 15; gaps outer current set 15
+bindsym $mod+s                  gaps inner current plus 5
+bindsym $mod+Shift+s            gaps inner current minus 5
+bindsym $mod+Shift+d            gaps inner current set 0; gaps outer current set 0
+bindsym $mod+z                  gaps outer current plus 5
+bindsym $mod+Shift+z            gaps outer current minus 5

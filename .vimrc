@@ -40,6 +40,7 @@ set path+=**
 let g:is_bash=1
 
 " Color scheme
+color solarized
 " color hhdgray
 
 " Search is case insensitive unless we include capital letters

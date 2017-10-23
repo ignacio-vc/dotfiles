@@ -1,4 +1,4 @@
-## Ignacio Vargas' .bash_aliases
+# Ignacio Vargas' .bash_aliases
 
 # Aptitude Package Manager
 ## Shortcuts for upgrading, installing, and uninstalling packages

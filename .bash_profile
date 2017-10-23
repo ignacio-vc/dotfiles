@@ -1,4 +1,4 @@
-## Ignacio Vargas' .bash_profile
+# Ignacio Vargas' .bash_profile
 
 default_dir=/usr/local/lib/
 

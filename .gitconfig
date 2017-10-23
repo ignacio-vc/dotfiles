@@ -1,12 +1,12 @@
+[user]
+    name = Ignacio Vargas Cordero
+    email = igvacor94@gmail.com
+
 [credential]
     helper = cache --timeout=3600
 
 [url "https://github.com/"]
     insteadOf = gh:
-
-[user]
-    name = Ignacio Vargas Cordero
-    email = igvacor94@gmail.com
 
 [remote "origin"]
     url = https://github.com/ignacio-vc/dotfiles.git
