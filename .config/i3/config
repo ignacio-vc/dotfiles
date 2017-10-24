@@ -81,7 +81,7 @@ bindsym $mod+Shift+r            restart
 bindsym $mod+Shift+f            exec firefox
 bindsym $mod+Return             exec urxvt
 bindsym $mod+Shift+Return       exec urxvt -e tmux
-bindsym $mod+d                  exec rofi -show run
+bindsym $mod+d                  exec rofi -run-list-command ". ~/scripts/fetch_bash_aliases.sh" -run-command "/bin/bash -i -c '{cmd}'" -rnow -show run
 bindsym $mod+Shift+e            exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+shift+x            exec i3lock --color "$bg-color"
 bindsym Print                   exec --no-startup-id scrot
@@ -120,7 +120,9 @@ bindsym $mod+Shift+0            move container to workspace $ws10
 
 # Program Workspaces
 assign [class="Firefox"]        $ws1
-assign [class="Spotify"]        $ws10
+assign [class="URxvt"]          $ws2
+assign [class="Dwarf_Fortress"] $ws7
+for_window [class="Spotify"]    move to workspace $ws10
 
 # Floating by default
 for_window [class="Lxappearance"] floating enable
@@ -192,6 +194,6 @@ mode "$mode_gaps_outer" {
 bindsym $mod+Shift+t            gaps inner current set 15; gaps outer current set 0
 bindsym $mod+s                  gaps inner current plus 5
 bindsym $mod+Shift+s            gaps inner current minus 5
-bindsym $mod+Shift+d            gaps inner current set 0; gaps outer current set 0
+#bindsym $mod+Shift+d           gaps inner current set 0; gaps outer current set 0
 bindsym $mod+z                  gaps outer current plus 5
 bindsym $mod+Shift+z            gaps outer current minus 5

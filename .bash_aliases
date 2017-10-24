@@ -72,11 +72,13 @@ alias wget='wget -c --content-disposition'
 
 # Programs
 ## Commonly used programs
+alias e='emacs'
 alias :e='vim'
 alias g:e='gvim'
 alias julia='$HOME/julia/julia'
 alias jupyter='$HOME/.local/bin/jupyter-notebook'
 alias r='ranger'
+alias dorf='bash $HOME/df_linux/df'
 
 # Safety Nets
 ## Nuclear disarmament. Prevents me from accidentally the whole thing.
