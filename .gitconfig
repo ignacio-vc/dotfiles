@@ -7,7 +7,3 @@
 
 [url "https://github.com/"]
     insteadOf = gh:
-
-[remote "origin"]
-    url = https://github.com/ignacio-vc/dotfiles.git
-    fetch = +refs/heads/*:refs/remotes/origin/*
