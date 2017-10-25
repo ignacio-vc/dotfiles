@@ -1,4 +1,6 @@
 acpi-call-dkms
+ethtool
 firmware-iwlwifi
+smartmontools
 tlp
 tp-smapi-dkms

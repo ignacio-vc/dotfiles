@@ -1,1 +1,1 @@
-xargs -a <(awk '! /^ *(#|$)/' "packagelist-cirklon3") -r -- sudo aptitude install
+xargs -a <(awk '! /^ *(#|$)/' "$HOME/packagelist-cirklon3") -r -- sudo aptitude install -R -v -y 

@@ -1,1 +1,1 @@
-xargs -a <(awk '! /^ *(#|$)/' "packagelist-sid") -r -- sudo aptitude install
+xargs -a <(awk '! /^ *(#|$)/' "$HOME/packagelist-sid") -r -- sudo aptitude install -r -v -y
