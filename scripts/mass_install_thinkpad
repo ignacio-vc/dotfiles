@@ -1,0 +1,1 @@
+xargs -a <(awk '! /^ *(#|$)/' "packagelist-cirklon3") -r -- sudo aptitude install

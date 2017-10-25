@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+# requires imagemagick
+# set MIN_WIDTH/MIN_HEIGHT to whatever you want
+
+# sets first/second argument to directories you want to use
+img_dir=/data/Pictures/Internet
+wall_dir=/data/Pictures/PotentialWalls
+
+# self explanatory
+MIN_WIDTH=1980
+MIN_HEIGHT=1080
+
+# file extensions to check for (separated by | because they will be used in regex)
+FILE_TYPES='jpg|png'
+
+# this is done to allow for filenames with spaces
+IFS="
+"
+
+if [ -d "$img_dir" ] && [ -d "$wall_dir" ]
+then 
+  for img in `find "$img_dir" -regextype posix-egrep -iregex ".*($FILE_TYPES)"`; do
+        width=`identify -format "%w" "$img"`
+        height=`identify -format "%h" "$img"`
+        action=Skipped
+        [ $width -ge $height ] && [ $width -ge $MIN_WIDTH ] && [ $height -ge $MIN_HEIGHT ] && ln -sr "$img" "$wall_dir" && action=Added
+        # NOTE: if $wall_dir already contains a file with the same name, it will be skipped
+
+        echo "$action $img (${width}x$height)"
+    done    
+
+else echo "$0 [directory to scan for images] [directory to make symlinks]"
+fi
