@@ -1,4 +1,3 @@
-alsa-utils
 apt-listbugs
 arandr
 bash-doc
@@ -35,6 +34,7 @@ mpd
 mpv
 ncmpcpp
 neofetch
+pavucontrol
 pkg-config
 pulseaudio
 pydf

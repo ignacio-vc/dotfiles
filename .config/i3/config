@@ -13,11 +13,13 @@ set $ws7                        "7"
 set $ws8                        "8"
 set $ws9                        "9"
 set $ws10                       "10"
-set $inc                        --no-startup-id amixer sset Master 2%+
-set $biginc                     --no-startup-id amixer sset Master 5%+
-set $dec                        --no-startup-id amixer sset Master 2%-
-set $bigdec                     --no-startup-id amixer sset Master 5%-
-set $mute                       --no-startup-id amixer sset Master toggle
+set $inc                        --no-startup-id pamixer --allow-boost -i 5
+set $biginc                     --no-startup-id pamixer --allow-boost -i 15
+set $dec                        --no-startup-id pamixer --allow-boost -d 5
+set $bigdec                     --no-startup-id pamixer --allow-boost -d 15
+set $mute                       --no-startup-id pamixer --allow-boost -t
+set $micmute                    --no-startup-id pamixer --allow-boost -t
+set $truemute                   --no-startup-id pamixer -m
 set $bg-color                   #2f343f
 #set $inactive-bg-color         #2f343f
 #set $text-color                #f3f4f5
@@ -86,6 +88,7 @@ bindsym $mod+Shift+e            exec "i3-nagbar -t warning -m 'You pressed the e
 bindsym $mod+shift+x            exec i3lock --color "$bg-color"
 bindsym Print                   exec --no-startup-id scrot
 bindsym Shift+Print             exec --no-startup-id scrot -u
+bindsym $mod+Shift+a            exec pavucontrol
 
 # Volume & Media Bindings
 bindsym XF86AudioMute           exec $mute
