@@ -1,0 +1,33 @@
+512 MB ESP                  EFI
+512 MB ext2                 /boot
+all GB lvm                  lvm
+    vg1
+        030 GB myRoot ext4  /root
+        006 GB mySwap ext4  swap
+        all GB myHome ext4  /home
+
+Standard System Utilities only
+
+su && apt-get install aptitude -y && aptitude full upgrade && aptitude install sudo && visudo
+
+add Defaults env_reset, timestamp_timeout=30
+add user ALL=(ALL:ALL) ALL beneath root
+
+exit && sudo aptitude install git && alias dot='/usr/bin/git --git-dir=$HOME/.config/dotgit --work-tree=$HOME' && git clone --bare https://github.com/ignacio-vc/dotfiles $HOME/.config/dotgit && rm .bashrc && dot checkout && dot config --local status.showUntrackedFiles no && dot pull origin master && . .bashrc
+
+If you want Sid, update /etc/apt/sources.list to testing, full-upgrade, sources.list to sid, full-upgrade, restart, then continue
+Add contrib non-free to /etc/apt/sources.list anyway
+
+sau
+bash scripts/mass_install_stable (or sid)
+bash scripts/mass_install_thinkpad (if on laptop)
+sudo tlp start && sudo ufw enable && sudo systemctl enable --now wicd && sudo update-alternatives --config editor (select vim.basic)
+mkdir ~/.vim/backup && mkdir ~/.vim/swap && mkdir ~/.vim/undo && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+:PluginInstall
+sudo vim /etc/default/tlp , and uncomment thresholds (if on laptop)
+mkdir inconsolata && cd inconsolata && wget http://www.fantascienza.net/leonardo/ar/inconsolatag/inconsolata-g_font.zip && unzip inconsolata-g_font.zip && mkdir ~/.local/share/fonts && mv Inconsolata-g.ttf Inconsolata-g.otf ~/.local/share/fonts && fc-cache -v
+sai pcmanfm -R -y
+wget https://raw.githubusercontent.com/maestrogerardo/i3-gaps-deb/master/i3-gaps-deb
+bash i3-gaps-deb
+git clone https://github.com/cdemoulins/pamixer ~/.config/pamixer && cd ~/.config/pamixer/ && make -j 4 && mv pamixer ~/.local/bin
+sudo reboot
