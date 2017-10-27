@@ -29,7 +29,7 @@ mkdir inconsolata && cd inconsolata && wget http://www.fantascienza.net/leonardo
 sai pcmanfm -R -y
 wget https://raw.githubusercontent.com/maestrogerardo/i3-gaps-deb/master/i3-gaps-deb
 bash i3-gaps-deb
-git clone https://github.com/cdemoulins/pamixer ~/.config/pamixer && cd ~/.config/pamixer/ && make -j 4 && mv pamixer ~/.local/bin
+git clone https://github.com/cdemoulins/pamixer ~/.config/pamixer && cd ~/.config/pamixer/ && make -j 4 && mkdir ~/.local/bin && mv pamixer ~/.local/bin
 sudo reboot
 
 Thinkpad T420 set
