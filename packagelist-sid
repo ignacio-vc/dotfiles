@@ -21,6 +21,7 @@ htop
 i3
 imagemagick
 inkscape
+libboost-program-options-dev
 libreoffice
 libsdl-ttf2.0-0
 lm-sensors
