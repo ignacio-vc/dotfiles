@@ -2,11 +2,13 @@ alsa-utils
 apt-listbugs
 arandr
 bash-doc
+calibre
 cmake
 colordiff
 compton
 curl
 debsums
+desktop-base
 emacs
 fail2ban
 feh
@@ -39,6 +41,7 @@ pydf
 python3-pip
 python-pip
 ranger
+reportbug
 rofi
 rxvt-unicode
 scrot
