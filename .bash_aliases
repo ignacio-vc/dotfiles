@@ -36,6 +36,7 @@ alias ll='ls -hlAFX --group-directories-first'
 
 # Dotfile Management with a bare Git repository
 alias dot='/usr/bin/git --git-dir=$HOME/.config/dotgit --work-tree=$HOME/'
+alias dash='dot pull origin master --rebase'
 
 # File Editing
 alias v='vim'

@@ -122,13 +122,26 @@ bindsym $mod+Shift+9            move container to workspace $ws9
 bindsym $mod+Shift+0            move container to workspace $ws10
 
 # Program Workspaces
-assign [class="Firefox"]        $ws1
-assign [class="URxvt"]          $ws2
-assign [class="Dwarf_Fortress"] $ws7
+assign [class="URxvt"]          $ws1
+assign [class="Firefox"]        $ws2
+assign [class="Pcmanfm"]        $ws3
+assign [class="Steam"]          $ws4
+assign [class="Dwarf_Fortress"] $ws6
 for_window [class="Spotify"]    move to workspace $ws10
 
 # Floating by default
 for_window [class="Lxappearance"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable
 
 # Startup Programs
 bar {
@@ -137,7 +150,6 @@ bar {
 exec --no-startup-id compton
 exec --no-startup-id unclutter
 exec pulseaudio --start
-exec amixer sset Master 100%
 exec_always --no-startup-id feh --bg-scale ~/.config/test.jpg
 
 
@@ -197,6 +209,6 @@ mode "$mode_gaps_outer" {
 bindsym $mod+Shift+t            gaps inner current set 15; gaps outer current set 0
 bindsym $mod+s                  gaps inner current plus 5
 bindsym $mod+Shift+s            gaps inner current minus 5
-#bindsym $mod+Shift+d           gaps inner current set 0; gaps outer current set 0
+bindsym $mod+Shift+d            gaps inner current set 0; gaps outer current set 0
 bindsym $mod+z                  gaps outer current plus 5
 bindsym $mod+Shift+z            gaps outer current minus 5
