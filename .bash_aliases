@@ -14,6 +14,7 @@ alias sea='aptitude search'
 alias sho='aptitude show'
 alias ver='aptitude versions'
 alias nope='sudo aptitude forbid-version'
+alias why='aptitude why'
 
 # CLI
 alias g='grep'
