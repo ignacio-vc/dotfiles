@@ -1,1 +1,1 @@
-xargs -a <(awk '! /^ *(#|$)/' "$HOME/packagelist-stable") -r -- sudo aptitude install -r -v -y
+xargs -a <(awk '! /^ *(#|$)/' "$HOME/packagelist-stable") -r -- sudo aptitude install -r -v
