@@ -6,31 +6,49 @@ all GB lvm                  lvm
         006 GB mySwap ext4  swap
         all GB myHome ext4  /home
 
+In my desktop:
+SSD
+100 MB ESP                  EFI
+256 MB ext2                 /boot
+all GB lvm
+    vg1
+        025 GB myRoot ext4  /root
+        all GB myHome ext4  /home
+
+HDD
+all GB lvm
+    vg2
+        008 GB mySwap swap  swap
+        all GB myData ext4  /data
+
 Standard System Utilities only
 
-su && apt-get install aptitude -y && aptitude full upgrade && aptitude install sudo && visudo
+su
+apt-get install aptitude -y && aptitude full-upgrade && aptitude install sudo && visudo
 
 add Defaults env_reset, timestamp_timeout=30
 add user ALL=(ALL:ALL) ALL beneath root
 
-exit && sudo aptitude install git && alias dot='/usr/bin/git --git-dir=$HOME/.config/dotgit --work-tree=$HOME' && git clone --bare https://github.com/ignacio-vc/dotfiles $HOME/.config/dotgit && rm .bashrc && dot checkout && dot config --local status.showUntrackedFiles no && dot pull origin master && . .bashrc
+exit
+sudo aptitude install git && alias dot='/usr/bin/git --git-dir=$HOME/.config/dotgit --work-tree=$HOME'
+git clone --bare https://github.com/ignacio-vc/dotfiles $HOME/.config/dotgit && rm .bashrc
+dot checkout && dot config --local status.showUntrackedFiles no && dot pull origin master && . .bashrc
 
-If you want Sid, update /etc/apt/sources.list to testing, full-upgrade, sources.list to sid, full-upgrade, restart, then continue
-Add contrib non-free to /etc/apt/sources.list anyway
+Add contrib non-free to /etc/apt/sources.list
+If you want Sid, update /etc/apt/sources.list to testing, eyy, sources.list to sid, eyy, then continue
 
-sau
 bash scripts/mass_install_stable (or sid)
 bash scripts/mass_install_thinkpad (if on laptop)
 sudo tlp start && sudo ufw enable && sudo systemctl enable --now wicd && sudo update-alternatives --config editor (select vim.basic)
 mkdir ~/.vim/backup && mkdir ~/.vim/swap && mkdir ~/.vim/undo && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 :PluginInstall
 sudo vim /etc/default/tlp , and uncomment thresholds (if on laptop)
-mkdir inconsolata && cd inconsolata && wget http://www.fantascienza.net/leonardo/ar/inconsolatag/inconsolata-g_font.zip && unzip inconsolata-g_font.zip && mkdir ~/.local/share/fonts && mv Inconsolata-g.ttf Inconsolata-g.otf ~/.local/share/fonts && fc-cache -v
+git clone https://github.com/supermarin/YosemiteSanFranciscoFont ~/.local/share/fonts/YSF && cd ~/.local/share/fonts
+wget http://www.fantascienza.net/leonardo/ar/inconsolatag/inconsolata-g_font.zip && unzip inconsolata-g_font.zip && fc-cache -v
 sai pcmanfm -R -y
 wget https://raw.githubusercontent.com/maestrogerardo/i3-gaps-deb/master/i3-gaps-deb
 bash i3-gaps-deb
 git clone https://github.com/cdemoulins/pamixer ~/.config/pamixer && cd ~/.config/pamixer/ && make -j 4 && mkdir ~/.local/bin && mv pamixer ~/.local/bin
-sudo reboot
 
 Thinkpad T420 set
 sudo vim /etc/modprobe.d/thinkpad.conf
