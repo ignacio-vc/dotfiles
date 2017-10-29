@@ -1,11 +1,10 @@
 apt-listbugs
 arandr
-bash-doc
+audacity
 cmake
 colordiff
 compton
 curl
-debsums
 desktop-base
 emacs
 fail2ban
@@ -39,7 +38,6 @@ ranger
 rofi
 rxvt-unicode
 scrot
-speedometer
 ssh
 tmux
 transmission
