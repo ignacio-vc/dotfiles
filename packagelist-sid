@@ -1,7 +1,6 @@
 apt-listbugs
 arandr
 bash-doc
-calibre
 cmake
 colordiff
 compton
@@ -12,8 +11,6 @@ emacs
 fail2ban
 feh
 firefox
-g++
-gcc
 gfortran
 gimp
 gparted
@@ -28,22 +25,17 @@ libsdl-ttf2.0-0
 lm-sensors
 logwatch
 lxappearance
-m4
-make
-man
 moka-icon-theme
 mpd
 mpv
 ncmpcpp
 neofetch
 pavucontrol
-pkg-config
 pulseaudio
 pydf
 python3-pip
 python-pip
 ranger
-reportbug
 rofi
 rxvt-unicode
 scrot
@@ -55,6 +47,7 @@ trash-cli
 ufw
 unclutter
 unoconv
+unzip
 vim
 vim-gtk
 wicd
