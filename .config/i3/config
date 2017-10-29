@@ -126,8 +126,9 @@ assign [class="URxvt"]          $ws1
 assign [class="Firefox"]        $ws2
 assign [class="Pcmanfm"]        $ws3
 assign [class="Steam"]          $ws5
-assign [class="Dwarf_Fortress"] $ws6
+assign [class="Dwarf_Fortress"] $ws7
 for_window [class="Spotify"]    move to workspace $ws10
+
 
 # Floating by default
 for_window [class="Lxappearance"] floating enable
@@ -150,7 +151,7 @@ bar {
 exec --no-startup-id compton
 exec --no-startup-id unclutter
 exec pulseaudio --start
-exec_always --no-startup-id feh --bg-scale ~/.config/test.jpg
+exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper.jpg
 
 
 ### i3-gaps stuff ###

@@ -15,6 +15,7 @@ alias sho='aptitude show'
 alias ver='aptitude versions'
 alias nope='sudo aptitude forbid-version'
 alias why='aptitude why'
+alias whynot='aptitude why-not'
 
 # CLI
 alias g='grep'
@@ -38,6 +39,7 @@ alias ll='ls -hlAFX --group-directories-first'
 # Dotfile Management with a bare Git repository
 alias dot='/usr/bin/git --git-dir=$HOME/.config/dotgit --work-tree=$HOME/'
 alias dash='dot pull origin master --rebase'
+alias slash='dot push origin master'
 
 # File Editing
 alias v='vim'
@@ -71,7 +73,7 @@ alias wget='wget -c --content-disposition'
 alias julia='$HOME/julia/julia'
 alias jupyter='$HOME/.local/bin/jupyter-notebook'
 alias r='ranger'
-alias dorf='bash $HOME/df_linux/df'
+alias dorf='bash $HOME/LinuxLNP-0.43.05-r06/startlnp'
 
 # Safety Nets
 alias cp='cp -i'
