@@ -50,6 +50,9 @@ wget https://raw.githubusercontent.com/maestrogerardo/i3-gaps-deb/master/i3-gaps
 bash i3-gaps-deb
 git clone https://github.com/cdemoulins/pamixer ~/.config/pamixer && cd ~/.config/pamixer/ && make -j 4 && mkdir ~/.local/bin && mv pamixer ~/.local/bin
 
+compile Julia
+install KeePassXC
+
 Thinkpad T420 set
 sudo vim /etc/modprobe.d/thinkpad.conf
 options thinkpad_acpi volume_control=1

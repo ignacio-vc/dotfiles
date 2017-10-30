@@ -76,12 +76,12 @@ alias r='ranger'
 alias dorf='bash $HOME/LinuxLNP-0.43.05-r06/startlnp'
 
 # Safety Nets
-alias cp='cp -i'
-alias del='rm -I --preserve-root'
+alias cp='cp -i -v'
+alias del='rm -I -v  --preserve-root'
 alias grp='chgrp --preserve-root'
 alias mod='chmod --preserve-root'
-alias mv='mv -i'
-alias ln='ln -i'
+alias mv='mv -i -v'
+alias ln='ln -i -v'
 alias own='chown --preserve-root'
 
 # System
