@@ -110,3 +110,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Detached process
+stfu() {
+        ( "$@" & disown -h ) &>/dev/null
+    }
+
+. "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"

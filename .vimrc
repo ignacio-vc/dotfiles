@@ -20,7 +20,7 @@ Plugin 'VundleVim/Vundle.vim'
 " }}}
 
 " Plugins go here
-Plugin 'flazz/vim-colorschemes'
+Plugin 'morhetz/gruvbox'
 
 " {{{ Dismiss Vundle
 
@@ -40,8 +40,10 @@ set path+=**
 let g:is_bash=1
 
 " Color scheme
-color solarized
-" color hhdgray
+let g:gruvbox_italic=1
+colorscheme gruvbox
+set background=light
+"set background=dark
 
 " Search is case insensitive unless we include capital letters
 set ignorecase smartcase

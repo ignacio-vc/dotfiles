@@ -1,2 +1,1 @@
-set guifont=Inconsolata-g\ 12
-color solarized
+set guifont=Inconsolata-g\ 11

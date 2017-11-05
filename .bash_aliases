@@ -24,6 +24,7 @@ alias hg='history | grep'
 alias ie='alias'
 alias rs='source $HOME/.bashrc'
 alias rr='xrdb $HOME/.Xresources'
+alias palette='(x=`tput op` y=`printf %76s`;for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;done)'
 
 # Directories
 alias dirs='dirs -v'

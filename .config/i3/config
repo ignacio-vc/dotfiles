@@ -27,7 +27,7 @@ set $bg-color                   #2f343f
 #set $urgent-bg-color           #E53935
 
 # General Configuration
-font pango:                     Inconsolata-g 11
+font pango:                     SFNS Display 11
 floating_modifier               $mod
 
 # Window Bindings
