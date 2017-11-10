@@ -1,30 +1,32 @@
-URxvt*termName:             rxvt-unicode-256color
-URxvt*font:                 xft:Inconsolata-g:size=11:hinting=true:antialias=true
+!URxvt.termName:             rxvt-unicode-256color
+URxvt.font:                 xft:Inconsolata-g:size=12:antialias=true:hinting=true, xft:FontAwesome:size=12:antialias=true:hinting=true
 URxvt.letterSpace:          -1
-URxvt*loginShell:           true
-!URxvt*scrollTtyKeypress:    true !URxvt*scrollTtyOutput:      false
-URxvt*scrollBar:            false
-!URxvt*fading:               30
-URxvt*internalBorder:       0
-URxvt*externalBorder:       0
-URxvt*url-launcher:         /usr/bin/firefox
-!URxvt*depth:                32
-!URxvt*intensityStyles:      false
+URxvt.loginShell:           true
+URxvt.scrollTtyKeypress:    true 
+URxvt.scrollTtyOutput:      false
+URxvt.scrollWithBuffer:     false
+URxvt.scrollBar:            false
+URxvt.fading:               10
+URxvt.internalBorder:       0
+URxvt.externalBorder:       0
+URxvt.url-launcher:         /usr/bin/firefox
+URxvt.depth:                32
+URxvt.intensityStyles:      false
 
-rofi*color-enabled:         true
-rofi*color-window:          #000, #000, #000
-rofi*color-normal:          #111, #819396, #222, #008ed4, #ffffff
-rofi*color-active:          #002b37, #008ed4, #003643, #008ed4, #66c6ff
-rofi*color-urgent:          #002b37, #da4281, #003643, #008ed4, #890661
-rofi*fake-transparency:     true
-rofi*lines:                 3
-rofi*bw:                    0
-rofi*opacity:               "10"
-rofi*hide-scrollbar:        true
-rofi*width:                 30
-rofi*terminal:              urxvt
-rofi*run-command:           {cmd}
-rofi*run-shell-command:     {terminal} -e {cmd}
+rofi.color-enabled:         true
+rofi.color-window:          #000, #000, #000
+rofi.color-normal:          #111, #819396, #222, #008ed4, #ffffff
+rofi.color-active:          #002b37, #008ed4, #003643, #008ed4, #66c6ff
+rofi.color-urgent:          #002b37, #da4281, #003643, #008ed4, #890661
+rofi.fake-transparency:     true
+rofi.lines:                 3
+rofi.bw:                    0
+rofi.opacity:               "10"
+rofi.hide-scrollbar:        true
+rofi.width:                 30
+rofi.terminal:              urxvt
+rofi.run-command:           {cmd}
+rofi.run-shell-command:     {terminal} -e {cmd}
 
 ! Gruvbox Color Table
 
@@ -130,33 +132,37 @@ rofi*run-shell-command:     {terminal} -e {cmd}
 *color14:               faded_aqua
 *color15:               dark1
 
-*color24:               faded_blue
-*color66:               faded_aqua
-*color88:               faded_red
-*color96:               faded_purple
-*color100:              faded_green
-*color108:              bright_aqua
-*color109:              bright_blue
-*color130:              faded_orange
-*color136:              faded_yellow
-*color142:              bright_green
-*color167:              bright_red
-*color175:              bright_purple
-*color208:              bright_orange
-*color214:              bright_yellow
-*color223:              light1
-*color228:              light0_soft
-*color229:              light0
-*color230:              light0_hard
-*color234:              dark0_hard
-*color235:              dark0
-*color236:              dark0_soft
-*color237:              dark1
-*color239:              dark2
-*color241:              dark3
-*color243:              dark4
-*color244:              gray
-*color245:              gray
-*color246:              light4
-*color248:              light3
-*color250:              light2
+URxvt.color234:         dark0_hard
+URxvt.color235:         dark0
+URxvt.color236:         dark0_soft
+URxvt.color237:         dark1
+URxvt.color239:         dark2
+URxvt.color241:         dark3
+URxvt.color243:         dark4
+
+URxvt.color244:         gray
+URxvt.color245:         gray
+
+URxvt.color230:         light0_hard
+URxvt.color229:         light0
+URxvt.color228:         light0_soft
+URxvt.color223:         light1
+URxvt.color250:         light2
+URxvt.color248:         light3
+URxvt.color246:         light4
+
+URxvt.color167:         bright_red
+URxvt.color142:         bright_green
+URxvt.color214:         bright_yellow
+URxvt.color109:         bright_blue
+URxvt.color175:         bright_purple
+URxvt.color108:         bright_aqua
+URxvt.color208:         bright_orange
+
+URxvt.color88:          faded_red
+URxvt.color100:         faded_green
+URxvt.color136:         faded_yellow
+URxvt.color24:          faded_blue
+URxvt.color96:          faded_purple
+URxvt.color66:          faded_aqua
+URxvt.color130:         faded_orange

@@ -3,16 +3,16 @@
 
 # Constants
 set $mod Mod4
-set $ws1                        "1.urxvt"
-set $ws2                        "2.Firefox"
-set $ws3                        "3"
-set $ws4                        "4"
-set $ws5                        "5.Steam"
-set $ws6                        "6"
-set $ws7                        "7"
-set $ws8                        "8"
-set $ws9                        "9"
-set $ws10                       "10.Music"
+set $ws1                        "1:  Terminal"
+set $ws2                        "2:  Firefox"
+set $ws3                        "3:  Email"
+set $ws4                        "4:  Directories"
+set $ws5                        "5:  Steam"
+set $ws6                        "6:  Editing"
+set $ws7                        "7:  Dorfs"
+set $ws8                        "8:  KeePassXC"
+set $ws9                        "9:  QGIS"
+set $ws10                       "10:  Music"
 set $inc                        ~/.local/bin/pamixer --allow-boost -i 5
 set $biginc                     ~/.local/bin/pamixer --allow-boost -i 15
 set $dec                        ~/.local/bin/pamixer --allow-boost -d 5
@@ -27,7 +27,7 @@ set $bg-color                   #2f343f
 #set $urgent-bg-color           #E53935
 
 # General Configuration
-font pango:                     SFNS Display 11
+font pango:                     SFNS Display, FontAwesome 12
 floating_modifier               $mod
 
 # Window Bindings
@@ -124,13 +124,20 @@ bindsym $mod+Shift+0            move container to workspace $ws10
 # Program Workspaces
 assign [class="URxvt"]          $ws1
 assign [class="Firefox"]        $ws2
-assign [class="Pcmanfm"]        $ws3
+assign [class="Thunderbird"]    $ws3
+assign [class="Pcmanfm"]        $ws4
 assign [class="Steam"]          $ws5
+for_window [title="GIMP Startup"]   move workspace $ws6
+for_window [class="Gimp"]           move workspace $ws6
+assign [class="audacity"]       $ws6
+assign [class="inkscape"]       $ws7
 assign [class="Dwarf_Fortress"] $ws7
+assign [class="keepassxc"]      $ws8
+for_window [class="qgis.bin"]   move to workspace $ws9
 for_window [class="Spotify"]    move to workspace $ws10
+for_window [class="Wine"]       move to workspace $ws5
 
-
-# Floating by default
+# Floating
 for_window [class="Lxappearance"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="^Steam$" title="^Friends$"] floating enable
@@ -143,6 +150,8 @@ for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
 for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enable
+for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
+for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 
 # Startup Programs
 bar {
@@ -164,7 +173,7 @@ smart_borders                   on
 client.focused_inactive         #000000 #000000 #000000 #000000 #000000
 client.unfocused                #000000 #000000 #000000 #000000 #000000
 gaps inner                      15
-gaps outer                      5
+gaps outer                      0
 #gaps inner                     12
 #gaps outer                     -2
 

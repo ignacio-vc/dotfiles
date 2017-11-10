@@ -40,6 +40,7 @@ set path+=**
 let g:is_bash=1
 
 " Color scheme
+"set termguicolors
 let g:gruvbox_italic=1
 colorscheme gruvbox
 set background=light

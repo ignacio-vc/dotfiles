@@ -75,6 +75,12 @@ alias julia='$HOME/julia/julia'
 alias jupyter='$HOME/.local/bin/jupyter-notebook'
 alias r='ranger'
 alias dorf='bash $HOME/LinuxLNP-0.43.05-r06/startlnp'
+alias pre64a='WINEARCH=win64 WINEPREFIX=$HOME/Vidya/Wine/64Prefix_A'
+alias pre32a='WINEARCH=win32 WINEPREFIX=$HOME/Vidya/Wine/32Prefix_A'
+alias steam-wine64='pre64a wine $HOME/Vidya/Wine/64Prefix_A/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe -no-cef-sandbox'
+alias steam-wine32='pre32a wine $HOME/Vidya/Wine/32Prefix_A/drive_c/Program\ Files/Steam/Steam.exe -no-cef-sandbox'
+alias steam-winedev64='pre64a wine-development $HOME/Vidya/Wine/64Prefix_A/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe -no-cef-sandbox'
+alias steam-winedev32='pre32a wine-development $HOME/Vidya/Wine/32Prefix_A/drive_c/Program\ Files/Steam/Steam.exe -no-cef-sandbox'
 
 # Safety Nets
 alias cp='cp -i -v'

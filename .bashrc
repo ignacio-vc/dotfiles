@@ -26,8 +26,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # Set history length
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 # Check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS
@@ -117,3 +117,6 @@ stfu() {
     }
 
 . "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
