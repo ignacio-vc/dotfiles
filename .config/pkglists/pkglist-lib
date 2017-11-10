@@ -1,10 +1,8 @@
 gtk-sharp2
-libboost-program-options-dev
 libglu1-mesa
 libgtk2.0-0
 libjpeg62
 libopenal1
-libpulse-dev
 libqt4-script
 libqt4-scripttools
 libqt5script5
