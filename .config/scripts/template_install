@@ -50,6 +50,15 @@ wget https://raw.githubusercontent.com/maestrogerardo/i3-gaps-deb/master/i3-gaps
 bash i3-gaps-deb
 git clone https://github.com/cdemoulins/pamixer ~/.config/pamixer && cd ~/.config/pamixer/ && make -j 4 && mkdir ~/.local/bin && mv pamixer ~/.local/bin
 
+rbenv init
+logoutgem install bundler
+rbenv rehash
+rbenv install 2.4.1
+rbenv global 2.4.1
+ruby -v
+gem install bundler
+rbenv rehash
+
 compile Julia
 install KeePassXC
 
