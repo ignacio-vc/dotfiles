@@ -1,4 +1,6 @@
 firmware-ralink
+intel-microcode
 linux-headers-$(uname -r|sed 's/[^-]*-[^-]*-//')
 nvidia-driver
+wine
 wine-development
