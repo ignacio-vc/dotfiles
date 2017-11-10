@@ -1,0 +1,1 @@
+xargs -a <(awk '! /^ *(#|$)/' "$HOME/.config/pkglists/pkglist-laptop") -r -- sudo aptitude install -R -v

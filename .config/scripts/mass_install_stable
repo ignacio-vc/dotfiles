@@ -1,1 +1,0 @@
-xargs -a <(awk '! /^ *(#|$)/' "$HOME/packagelist-stable") -r -- sudo aptitude install -r -v
