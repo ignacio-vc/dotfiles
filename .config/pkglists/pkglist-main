@@ -12,6 +12,7 @@ i3
 imagemagick
 libboost-program-options-dev
 libpulse-dev
+libqt5x11extras5
 lm-sensors
 logwatch
 lxappearance

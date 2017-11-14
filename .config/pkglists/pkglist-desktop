@@ -1,6 +1,12 @@
+dolphin-emu
 firmware-ralink
 intel-microcode
 linux-headers-$(uname -r|sed 's/[^-]*-[^-]*-//')
+mednafen
 nvidia-driver
+pcsx2:i386
+qgis
+steam:i386
 wine
 wine-development
+winetricks

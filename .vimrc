@@ -43,8 +43,8 @@ let g:is_bash=1
 "set termguicolors
 let g:gruvbox_italic=1
 colorscheme gruvbox
-set background=light
-"set background=dark
+"set background=light
+set background=dark
 
 " Search is case insensitive unless we include capital letters
 set ignorecase smartcase
@@ -130,7 +130,7 @@ nnoremap <C-k> O<ESC>j
 command! Paste call SmartPaste()
 
 " Create 'tags' file
-command! MakeTags !ctags -R .
+"command! MakeTags !ctags -R .
 
 " Fix whitespace
 nnoremap <F4> :retab<CR>:%s/\s\+$//e<CR><C-o>
@@ -150,8 +150,8 @@ nnoremap <silent> L :call MyNext()<CR>
 nnoremap <silent> H :call MyPrev()<CR>
 
 " Insert timestamp
-nnoremap <C-d> "=strftime("%-l:%M%p")<CR>P
-inoremap <C-d> <C-r>=strftime("%-l:%M%p")<CR>
+"nnoremap <C-d> "=strftime("%-l:%M%p")<CR>P
+"inoremap <C-d> <C-r>=strftime("%-l:%M%p")<CR>
 
 " }}}
 
