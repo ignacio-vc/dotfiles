@@ -154,14 +154,21 @@ for_window [window_role="gimp-dock"] floating disable; move left; resize shrink 
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 
 # Startup Programs
-bar {
-    status_command i3status
-}
+#bar {
+#    status_command i3status
+#}
 exec --no-startup-id compton
 exec --no-startup-id unclutter
 exec pulseaudio --start
 exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper.jpg
+exec --no-startup-id mpd
+exec --no-startup-id transmission-daemon
+exec --no-startup-id sudo mount -a
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+bindsym Menu	exec --no-startup-id xmodmap -e 'keycode 135 = Super_R' 
+exec --no-startup-id exec synclient TouchpadOff=1
 
+exec "setxkbmap -option 'grp:alt_shift_toggle'"
 
 ### i3-gaps stuff ###
 
