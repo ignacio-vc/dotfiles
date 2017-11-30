@@ -5,9 +5,9 @@
 set $mod Mod4
 set $ws1                        "1:  Terminal"
 set $ws2                        "2:  Firefox"
-set $ws3                        "3:  Email"
-set $ws4                        "4:  Directories"
-set $ws5                        "5:  Steam"
+set $ws3                        "3:  Directories"
+set $ws4                        "4:  Steam"
+set $ws5                        "5: Wine"
 set $ws6                        "6:  Editing"
 set $ws7                        "7:  Dorfs"
 set $ws8                        "8:  KeePassXC"
@@ -124,18 +124,15 @@ bindsym $mod+Shift+0            move container to workspace $ws10
 # Program Workspaces
 assign [class="st-256color"]    $ws1
 assign [class="Firefox"]        $ws2
-assign [class="Thunderbird"]    $ws3
-assign [class="Pcmanfm"]        $ws4
-assign [class="Steam"]          $ws5
-for_window [title="GIMP Startup"]   move workspace $ws6
-for_window [class="Gimp"]           move workspace $ws6
+assign [class="Thunar"]         $ws3
+assign [class="Steam"]          $ws4
+for_window [title="GIMP Startup"]   move container to workspace $ws6
+for_window [class="Gimp"]           move container to workspace $ws6
 assign [class="audacity"]       $ws6
 assign [class="inkscape"]       $ws7
 assign [class="Dwarf_Fortress"] $ws7
 assign [class="keepassxc"]      $ws8
-for_window [class="qgis.bin"]   move to workspace $ws9
-for_window [class="Spotify"]    move to workspace $ws10
-for_window [class="Wine"]       move to workspace $ws5
+for_window [class="Spotify"]    move container to workspace $ws10
 
 # Floating
 for_window [class="Lxappearance"] floating enable
