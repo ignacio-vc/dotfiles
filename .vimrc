@@ -21,6 +21,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Plugins go here
 Plugin 'morhetz/gruvbox'
+Plugin 'dylanaraps/wal.vim'
 
 " {{{ Dismiss Vundle
 
