@@ -7,10 +7,10 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
-# Launch bar1 and bar2
-#polybar example &
+#Define xrdb colors with wal
+wal -c -i ~/.config/wallpaper.jpg
 
-for i in $(polybar -m | awk -F: '{print $1}'); do MONITOR=$i polybar example -c ~/.config/polybar/config & done
-feh --bg-scale ~/.config/wallpaper.jpg
+# Launch bar1 and bar2
+polybar example &
 
 echo "Bars launched..."
