@@ -9,20 +9,29 @@ You can learn more about how that works here:
 
 #### Currently using them on Debian Sid with:
 
-- [i3](https://github.com/Airblader/i3)
-- [i3-gaps](https://github.com/maestrogerardo/i3-gaps-deb)
+- [i3](https://i3wm.org/)
+- [i3-gaps](https://github.com/Airblader/i3)
+- [i3-gaps Deb script](https://github.com/maestrogerardo/i3-gaps-deb)
+- [rofi](https://github.com/DaveDavenport/rofi)
+- [pywal](https://github.com/dylanaraps/pywal)
 - [polybar](https://github.com/jaagr/polybar)
 - [compton](https://github.com/chjj/compton)
-- [st](https://st.suckless.org/)
-- [neofetch](https://github.com/dylanaraps/neofetch)
-- [ranger](https://github.com/ranger/ranger)
+- [stu (st)](https://github.com/ignacio-vc/stu)
 - [feh](https://github.com/derf/feh)
 - [mpv](https://github.com/mpv-player/mpv)
 - [mpd](https://github.com/MusicPlayerDaemon/MPD)
-- [ncmpcpp](https://github.com/arybczak/ncmpcpp)
-- [keepassxc](https://github.com/arybczak/ncmpcpp)
+- [mpc](https://www.musicpd.org/clients/mpc/)
 - [tmux](https://github.com/tmux/tmux)
-- [transmission](https://github.com/transmission/transmission)
+- [scrot](https://en.wikipedia.org/wiki/Scrot)
+- [ranger](https://github.com/ranger/ranger)
+- [ncmpcpp](https://github.com/arybczak/ncmpcpp)
+- [pamixer](https://github.com/cdemoulins/pamixer)
+- [neomutt](https://www.neomutt.org/)
+- [neofetch](https://github.com/dylanaraps/neofetch)
+- [keepassxc](https://keepassxc.org/)
+- [unclutter](https://wiki.archlinux.org/index.php/Unclutter)
+- [pavucontrol](https://freedesktop.org/software/pulseaudio/pavucontrol/)
+- [transmission-daemon](https://github.com/transmission/transmission)
 
 #### Vundle is used for Vim plugin management. Emacs is configured with evil-mode and use-package
 
