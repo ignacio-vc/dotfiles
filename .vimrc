@@ -154,6 +154,9 @@ nnoremap <silent> H :call MyPrev()<CR>
 "nnoremap <C-d> "=strftime("%-l:%M%p")<CR>P
 "inoremap <C-d> <C-r>=strftime("%-l:%M%p")<CR>
 
+" URLview
+noremap <leader>u :w<Home>silent <End> !urlview<CR>
+
 " }}}
 
 " {{{ Custom Functions
