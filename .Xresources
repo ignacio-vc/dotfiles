@@ -5,7 +5,15 @@ rofi.terminal:              st
 rofi.run-command:           {cmd}
 rofi.run-shell-command:     {terminal} -e {cmd}
 
-!st.font:           -*-fixed-*-*-*-*-10-*-*-*-*-*-*-1
+Xft.antialias:              1
+Xft.autohint:               0
+Xft.dpi:                    96
+Xft.hinting:                1
+Xft.hintstyle:              hintfull
+Xft.lcdfilter:              lcddefault
+Xft.rgba:                   rgb
+
+!st.font:                Inconsolata-g:size=14
 !st.bold_font:          0
 !st.background:         #131415
 !st.foreground:         #A3BAD0
