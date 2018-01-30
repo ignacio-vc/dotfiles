@@ -31,18 +31,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 font-0 = SFNS Display:size=12;0
-;font-0 = Inconsolata\-g:size=12;0
-;font-0 = Noto Sans:size=10;0
-;font-0 = Noto Mono:size=10;0
-;font-0 = Inconsolata:size=10;0
-;font-0 = Liberation Sans:size=10;0
-;font-0 = DejaVu Sans:size=10;0
-;font-0 = DejaVu Sans Mono:size=10;0
-;font-0 = Liberation Mono:size=10;0
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;0
-;font-3 = Weather Icons:size=12;1
-;modules-left = i3 temperature nvidiatemp cpu memory pomodoro
 modules-left = i3 temperature cpu memory 
 modules-center = mpd
 modules-right = volume wlan eth battery date
@@ -279,7 +269,7 @@ animation-charging-framerate = 750
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-;hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+hwmon-path =
 warn-temperature = 60
 format = <ramp> <label>
 format-underline = ${xrdb:color1}
@@ -325,51 +315,3 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
-
-[module/system-usb-mount]
-type = custom/script
-exec = ~/.config/polybar/system-usb-mount.sh
-interval = 5
-click-left = ~/.config/polybar/system-usb-mount.sh --mount
-click-right = ~/.config/polybar/system-usb-mount.sh --unmount
-
-[module/system-cpu-temppercore]
-type = custom/script
-exec = ~/.config/polybar/system-cpu-temppercore.sh
-interval = 5
-
-[module/pomodoro]
-type = custom/script
-; Use pomicons
-;exec = pymodoro -bp '\ue005' -pp '\ue003' -p '\ue001' -e '\ue002' -b '\ue006' -l 5
-;exec = pymodoro --break-prefix " " --pomodoro-prefix " " --pomodoro  --empty  --break  --length 5
-;exec = pymodoro --pomodoro-prefix " " --length 5
-; Use default symbols
-exec = pymodoro --length 5
-label = %output%
-tail = true
-interval = 0
-; Start or reset the timer
-click-left = if [ -e ~/.pomodoro_session ]; then rm ~/.pomodoro_session; else echo "25 5" > ~/.pomodoro_session; fi
-; Increase pomodoro time
-click-right = echo "$((`cut .pomodoro_session -d ' ' -f 1`+5)) 5" > .pomodoro_session
-; Reduce pomodoro time
-click-middle = echo "$((`cut .pomodoro_session -d ' ' -f 1`-5)) 5" > .pomodoro_session
-format-underline = ${xrdb:color7}
-
-[module/system-cpu-loadavg]
-type = custom/script
-exec = ~/.config/polybar/system-cpu-loadavg.sh
-interval = 5
-
-[module/openweathermap-simple]
-type = custom/script
-exec = ~/.config/polybar/openweathermap-simple.sh
-interval = 600
-label-font = 3
-
-[module/nvidiatemp]
-type = custom/script
-exec = ~/.config/polybar/nvidiatemp.sh
-interval = 1
-format-underline = ${xrdb:color1}
