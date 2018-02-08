@@ -99,6 +99,13 @@
 
 (provide 'init)
 
-(set-default-font "Inconsolata-g-12")
+(set-default-font "Inconsolata_g-14")
+
+;; Gruvbox
+(use-package gruvbox-theme :ensure t)
+(load-theme 'gruvbox-light-medium t)
+
+;; Julia
+(use-package julia-mode :ensure t)
 
 ;;; init.el ends here

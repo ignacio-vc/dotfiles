@@ -13,7 +13,7 @@ Xft.hintstyle:              hintfull
 Xft.lcdfilter:              lcddefault
 Xft.rgba:                   rgb
 
-!st.font:                Inconsolata-g:size=14
+!st.font:                Inconsolata_g:size=14
 !st.bold_font:          0
 !st.background:         #131415
 !st.foreground:         #A3BAD0

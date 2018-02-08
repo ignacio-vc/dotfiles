@@ -1,3 +1,3 @@
-set guifont=Inconsolata-g\ 11
+set guifont=Inconsolata_g\ 14
 set background=light
 "set background=dark
