@@ -72,7 +72,7 @@ alias wget='wget -c --content-disposition'
 alias yt="youtube-dl --add-metadata -ic" # Download video link
 alias yta="youtube-dl --add-metadata -xic" # Download only audio
 alias YT="youtube-viewer"
-alias ethspeed="speedometer -r enp0s25"
+alias ethspeed="speedometer -r eno1"
 alias wifispeed="speedometer -r wlp3s0"
 alias tpbs="clear && figlet -c TPB Search && ~/.config/Scripts/tpb.sh" # Pirate Bay search
 
