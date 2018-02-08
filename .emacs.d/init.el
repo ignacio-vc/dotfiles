@@ -99,7 +99,7 @@
 
 (provide 'init)
 
-;;(set-default-font "Inconsolata-g-14")
+(set-default-font "Inconsolata_g-14")
 
 ;; Gruvbox
 (use-package gruvbox-theme :ensure t)
