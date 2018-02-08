@@ -266,11 +266,7 @@ animation-charging-framerate = 750
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-<<<<<<< HEAD
 hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
-=======
-hwmon-path =
->>>>>>> master
 warn-temperature = 60
 format = <ramp> <label>
 format-underline = ${xrdb:color1}
@@ -316,3 +312,9 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+
+[module/nvidiatemp]
+type = custom/script
+exec = ~/.config/polybar/nvidiatemp.sh
+interval = 1
+format-underline = ${xrdb:color1}
