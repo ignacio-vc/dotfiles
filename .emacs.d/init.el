@@ -107,5 +107,6 @@
 
 ;; Julia
 (use-package julia-mode :ensure t)
+(use-package ess :ensure t)
 
 ;;; init.el ends here
