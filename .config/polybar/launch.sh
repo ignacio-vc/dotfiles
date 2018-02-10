@@ -10,7 +10,7 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 #Define xrdb colors with wal
 wal -c -i ~/.config/wallpaper.jpg
 
-# Launch bar1 and bar2
-polybar example &
+# Launch bars
+polybar top &
 
 echo "Bars launched..."
