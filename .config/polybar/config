@@ -10,7 +10,6 @@ alert = #bd2c40
 col = #00f
 
 [bar/top]
-;fixed-center = false
 width = 100%
 height = 24
 background = ${colors.background}
@@ -30,7 +29,7 @@ font-3 = Font Awesome 5 Free Solid:size=10;0
 font-4 = Font Awesome 5 Brands:size=12;0
 modules-left = i3 xwindow
 modules-center = date
-modules-right = mpd pulseaudio wlan eth xkeyboard temperature
+modules-right = mpd pulseaudio temperature
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
