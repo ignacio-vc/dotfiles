@@ -98,7 +98,7 @@ bindsym Print                   exec scrot
 bindsym Shift+Print             exec scrot -u
 bindsym Ctrl+Shift+Print        exec scrot -s
 bindsym $mod+Shift+a            exec pavucontrol
-bindsym $mod+e                  exec st neomutt
+bindsym $mod+e                  exec st mutt
 bindsym $mod+r                  exec st ranger
 bindsym $mod+i                  exec st htop 
 bindsym $mod+m                  exec $music
