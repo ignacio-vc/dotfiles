@@ -117,9 +117,3 @@ stfu() {
     }
 
 . "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-export PATH="${PATH}:${HOME}/.local/bin/"
-export PATH="${PATH}:${HOME}/.config/scripts"
-export PATH="${PATH}:${HOME}/julia"

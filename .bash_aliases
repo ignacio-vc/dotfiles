@@ -78,6 +78,7 @@ alias tpbs="clear && figlet -c TPB Search && ~/.config/Scripts/tpb.sh" # Pirate 
 
 # Programs
 alias julia='$HOME/julia/julia'
+alias julia-dev='$HOME/julia-dev/julia'
 alias jupyter='$HOME/.local/bin/jupyter-notebook'
 alias bw='wal -ci ~/.config/wallpaper.jpg'
 alias dorf='bash $HOME/LinuxLNP-0.43.05-r06/startlnp'
