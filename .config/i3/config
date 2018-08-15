@@ -1,4 +1,4 @@
-# Ignacio Vargas' i3-gaps config
+# i3-gaps configuration
 
 ###---Constants---###
 
@@ -12,6 +12,7 @@ set $ws7                        "7"
 set $ws8                        "8"
 set $ws9                        "9"
 set $ws10                       "10"
+set $browser                    firefox
 set $music                      st ncmpcpp
 set $inc                        ~/.local/bin/pamixer -i 5
 set $biginc                     ~/.local/bin/pamixer -i 15
@@ -32,53 +33,66 @@ set $bigbak                     --no-startup-id mpc seek -120
 set $beg                        --no-startup-id mpc seek 0%
 set $mod                        Mod4
 set $bg-color                   #2f343f
-floating_modifier               $mod
-
 font pango:                     SFNS Display, FontAwesome 12
 
 ###---Startup---###
 
-exec --no-startup-id compton
-exec --no-startup-id unclutter
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec_always --no-startup-id setxkbmap -option caps:escape
-bindsym Menu exec --no-startup-id xmodmap -e 'keycode 135 = Super_R' 
+exec --no-startup-id            compton
+exec --no-startup-id            unclutter
+exec_always --no-startup-id     ~/.config/polybar/launch.sh
+exec_always --no-startup-id     setxkbmap -option caps:escape
+bindsym Menu                    exec --no-startup-id xmodmap -e 'keycode 135 = Super_R' 
 #exec "setxkbmap -option 'grp:alt_shift_toggle'"
 
+###---Mouse---###
+
+floating_modifier               $mod
+mouse_warping                   output
+focus_follows_mouse             no
 
 ###---Window Bindings---###
 
-bindsym $mod+Shift+q            kill
+# HJKL
 bindsym $mod+h                  focus left
 bindsym $mod+j                  focus down
 bindsym $mod+k                  focus up
 bindsym $mod+l                  focus right
-bindsym $mod+Left               focus left
-bindsym $mod+Down               focus down
-bindsym $mod+Up                 focus up
-bindsym $mod+Right              focus right
 bindsym $mod+Shift+h            move left
 bindsym $mod+Shift+j            move down
 bindsym $mod+Shift+k            move up
 bindsym $mod+Shift+l            move right
+
+# YUIO
+bindsym $mod+y                  resize shrink width 10 px or 10ppt
+bindsym $mod+u                  resize grow height 10 px or 10 ppt
+bindsym $mod+i                  resize shrink height 10 px or 10 ppt
+bindsym $mod+o                  resize grow width 10 px or 10 ppt
+
+# ArrowKeys
+bindsym $mod+Left               focus left
+bindsym $mod+Down               focus down
+bindsym $mod+Up                 focus up
+bindsym $mod+Right              focus right
 bindsym $mod+Shift+Left         move left
 bindsym $mod+Shift+Down         move down
 bindsym $mod+Shift+Up           move up
 bindsym $mod+Shift+Right        move right
-bindsym $mod+x                  split v
-bindsym $mod+y                  split h
+
+# Split along X/Y
+bindsym $mod+z                  split v
+bindsym $mod+x                  split h
+
+# Misc
+bindsym $mod+Shift+q            kill
 bindsym $mod+f                  fullscreen toggle
-bindsym $mod+s                  layout stacking
-bindsym $mod+w                  layout tabbed
-bindsym $mod+t                  layout toggle split
 bindsym $mod+Shift+space        floating toggle
-bindsym $mod+space focus        mode_toggle
 bindsym $mod+q                  focus parent
 bindsym $mod+a                  focus child
-bindsym $mod+Shift+y            resize shrink width 10 px or 10ppt
-bindsym $mod+Shift+u            resize grow height 10 px or 10 ppt
-bindsym $mod+Shift+i            resize shrink height 10 px or 10 ppt
-bindsym $mod+Shift+o            resize grow width 10 px or 10 ppt
+
+#bindsym $mod+s                  layout stacking
+#bindsym $mod+w                  layout tabbed
+#bindsym $mod+t                  layout toggle split
+#bindsym $mod+space focus        mode_toggle
 
 ###---Restart Bindings---###
 
@@ -88,20 +102,28 @@ bindsym $mod+Shift+p            exec --no-startup-id ~/.config/polybar/launch.sh
 
 ###---Program Bindings---###
 
-bindsym $mod+Shift+f            exec firefox
-bindsym $mod+Return             exec st
 bindsym $mod+d                  exec rofi -run-list-command ". ~/.config/scripts/fetch_bash_aliases.sh" -run-command "/bin/bash -i -c '{cmd}'" -rnow -show run
-bindsym $mod+Shift+e            exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+shift+x            exec i3lock --color "$bg-color"
+bindsym $mod+r                  exec st ranger
+bindsym $mod+e                  exec st mutt
+bindsym $mod+t                  exec st htop 
+
+bindsym $mod+Return             exec st
 bindsym Print                   exec scrot
 bindsym Shift+Print             exec scrot -u
 bindsym Ctrl+Shift+Print        exec scrot -s
+
+bindsym $mod+Shift+e            exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+x            exec i3lock --color "$bg-color"
+bindsym $mod+Shift+f            exec $browser
 bindsym $mod+Shift+a            exec pavucontrol
-bindsym $mod+e                  exec st mutt
-bindsym $mod+r                  exec st ranger
-bindsym $mod+i                  exec st htop 
-bindsym $mod+m                  exec $music
-bindsym $mod+o                  exec telegram-desktop
+bindsym $mod+Shift+m            exec $music
+bindsym $mod+Shift+v            exec lutris
+bindsym $mod+Shift+b            exec gulp run --cwd ~/Downloads/popcorn-desktop
+bindsym $mod+Shift+w            exec wicd-gtk -n
+bindsym $mod+Shift+y            exec keepassxc
+bindsym $mod+Shift+u            exec firejail discord
+bindsym $mod+Shift+i            exec telegram-desktop
+bindsym $mod+Shift+o            exec wire-desktop
 
 ###---Media Bindings---###
 
@@ -121,7 +143,7 @@ bindsym $mod+Shift+less         exec $beg
 bindsym $mod+greater            exec $next
 bindsym $mod+Shift+greater      exec $next
 bindsym $mod+p                  exec $pause
-bindsym $mod+Shift+m            exec $mute
+bindsym $mod+m                  exec $mute
 bindsym $mod+bracketleft        exec $lilbak
 bindsym $mod+Shift+bracketleft  exec $bigbak
 bindsym $mod+bracketright       exec $lilfor
@@ -150,21 +172,56 @@ bindsym $mod+Shift+8            move container to workspace $ws8
 bindsym $mod+Shift+9            move container to workspace $ws9
 bindsym $mod+Shift+0            move container to workspace $ws10
 
+assign [title="ranger"]         $ws3
+assign [title="htop"]           $ws3
+assign [title="ncmpcpp"]        $ws6
+
 assign [class="st-256color"]    $ws1
 assign [class="Firefox"]        $ws2
 assign [class="pcmanfm-qt"]     $ws3
+assign [class="gzdoom"]         $ws3
+assign [class="Popcorn-Time"]   $ws3
+assign [class="Steam"]          $ws4
+assign [class="aok hd.exe"]     $ws5
 assign [class="audacity"]       $ws6
 assign [class="inkscape"]       $ws7
+assign [class="discord"]        $ws7
 assign [class="keepassxc"]      $ws8
-assign [class="Telegram"]       $ws10
+assign [class="Wicd-client.py"] $ws8
+assign [class="Telegram"]       $ws9
+assign [class="Wire"]           $ws10
 
-for_window [title="GIMP Startup"]   move container to workspace $ws6
-for_window [class="Gimp"]           move container to workspace $ws6
+for_window [class="explorer.exe"]       move container to workspace $ws5
+for_window [class="Lutris"]             move container to workspace $ws6
+for_window [title="GIMP Startup"]       move container to workspace $ws6
+for_window [class="Gimp"]               move container to workspace $ws6
+for_window [class="Dwarf Therapist"]    move container to workspace $ws3
+for_window [class="Wine"]               move container to workspace $ws5
 
-for_window [class="Lxappearance"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
+for_window [class="Wine"]               floating enable
+for_window [class="Pavucontrol"]        floating enable
+for_window [class="Dwarf_Fortress"]     floating enable
+for_window [window_role="gimp-dock"]    floating disable; move left; resize shrink width 50 px or 50ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
+
+for_window [class="^Steam$" title="^Friends List$"]                                     floating enable
+for_window [class="^Steam$" title="Steam - News"]                                       floating enable
+for_window [class="^Steam$" title=".* - Chat"]                                          floating enable
+for_window [class="^Steam$" title="^Settings$"]                                         floating enable
+for_window [class="^Steam$" title=".* - event started"]                                 floating enable
+for_window [class="^Steam$" title=".* CD key"]                                          floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"]                             floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"]                              floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"]    floating enable
+for_window [class="Wine" title="^Friends$"]                                             floating enable
+for_window [class="Wine" title="Steam - News"]                                          floating enable
+for_window [class="Wine" title=".* - Chat"]                                             floating enable
+for_window [class="Wine" title="^Settings$"]                                            floating enable
+for_window [class="Wine" title=".* - event started"]                                    floating enable
+for_window [class="Wine" title=".* CD key"]                                             floating enable
+for_window [class="Wine" title="^Steam - Self Updater$"]                                floating enable
+for_window [class="Wine" title="^Screenshot Uploader$"]                                 floating enable
+for_window [class="Wine" title="^Steam Guard - Computer Authorization Required$"]       floating enable
 
 ### i3-gaps stuff ###
 

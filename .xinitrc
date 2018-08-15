@@ -1,4 +1,6 @@
 #!/bin/sh
+# .xinitrc
+# Starts with X server
 
 userresources=$HOME/.Xresources
 

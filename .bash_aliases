@@ -1,4 +1,4 @@
-# Ignacio Vargas' .bash_aliases
+# .bash_aliases
 
 # Aptitude Package Manager
 alias sau='sudo aptitude update'
@@ -29,11 +29,11 @@ alias palette='(x=`tput op` y=`printf %76s`;for i in {0..256};do o=00$i;echo -e 
 # Directories
 alias dirs='dirs -v'
 alias mkdir='mkdir -pv'
-alias l='ls -xFX --group-directories-first'
+alias l='ls -xF --group-directories-first'
+alias la='ls -xFX --group-directories-first'
 alias ld='ls -hoFX --group-directories-first'
 alias lh='ls -xdFX .* --group-directories-first'
 alias lhd='ls -hodFX .* --group-directories-first'
-alias la='ls -xAFX --group-directories-first'
 alias lad='ls -hoAFX --group-directories-first'
 alias ll='ls -hlAFX --group-directories-first'
 
@@ -71,18 +71,30 @@ alias ports='netstat -tulanp'
 alias wget='wget -c --content-disposition'
 alias yt="youtube-dl --add-metadata -ic" # Download video link
 alias yta="youtube-dl --add-metadata -xic" # Download only audio
-alias YT="youtube-viewer"
 alias ethspeed="speedometer -r eno1"
 alias wifispeed="speedometer -r wlp3s0"
 alias tpbs="clear && figlet -c TPB Search && ~/.config/Scripts/tpb.sh" # Pirate Bay search
 
 # Programs
 alias julia='$HOME/julia/julia'
-alias julia-dev='$HOME/julia-dev/julia'
+alias julia1='$HOME/julia1/julia'
 alias jupyter='$HOME/.local/bin/jupyter-notebook'
 alias bw='wal -ci ~/.config/wallpaper.jpg'
-alias cap='ncdu'
-alias top='htop'
+
+# Entretainment
+alias doom='crispy-doom -iwad ~/Vidya/Doom/IWADS/doom1.wad'
+alias doom2='crispy-doom -iwad ~/Vidya/Doom/IWADS/doom2.wad'
+alias boom='prboom-plus -iwad ~/Vidya/Doom/IWADS/doom2.wad'
+alias wads='clear && printf "DOOM WADs\n" && printf "\nIWADS\n" && l ~/Vidya/Doom/IWADS/ && printf "\nPWADS/Cosmetic\n" && l ~/Vidya/Doom/PWADS/Cosmetic && printf "\nPWADS/Expansions\n" && l ~/Vidya/Doom/PWADS/Expansions && printf "\nPWADS/Gameplay\n" && l ~/Vidya/Doom/PWADS/Gameplay && printf "\nPWADS/Maps\n" && l ~/Vidya/Doom/PWADS/Maps && printf "\nPWADS/TotalConversions\n" && l ~/Vidya/Doom/PWADS/TotalConversions && printf "\n"'
+alias quake='quakespasm -basedir ~/Vidya/Quake/'
+alias arcane='quakespasm -basedir ~/Vidya/Quake/ -game ad'
+alias xonotic='cd Vidya/Xonotic/ && ./xonotic-linux64-glx && cd -'
+alias xcom='~/Vidya/OpenXcom/OpenXcom*'
+alias dorf='st -e $HOME/Vidya/DwarfFortress/df_linux/dfhack & st -e $HOME/Vidya/DwarfFortress/DwarfTherapist'
+alias swat='cd ~/Vidya/Wine/64bit/GOG/drive_c/GOG\ Games/SWAT\ 4/SEF/System && WINEPREFIX=~/Vidya/Wine/64bit/GOG wine ~/Vidya/Wine/64bit/GOG/drive_c/GOG\ Games/SWAT\ 4/ContentExpansion/System/Swat4X.exe -nointro && cd ~ && xgamma -gamma 1.0'
+alias rainbow='cd ~/Vidya/Wine/64bit/Main64/drive_c/Program\ Files\ \(x86\)/Red\ Storm\ Entertainment/Rainbow\ Six\ Black\ Ops/ && WINEPREFIX=~/Vidya/Wine/64bit/Main64 wine ~/Vidya/Wine/64bit/Main64/drive_c/Program\ Files\ \(x86\)/Red\ Storm\ Entertainment/Rainbow\ Six\ Black\ Ops/BlackOps.exe && cd ~'
+alias rainbowconfig='cd ~/Vidya/Wine/64bit/Main64/drive_c/Program\ Files\ \(x86\)/Red\ Storm\ Entertainment/Rainbow\ Six\ Black\ Ops/ && WINEPREFIX=~/Vidya/Wine/64bit/Main64 wine ~/Vidya/Wine/64bit/Main64/drive_c/Program\ Files\ \(x86\)/Red\ Storm\ Entertainment/Rainbow\ Six\ Black\ Ops/BOConfig.exe && cd ~'
+alias voobly='WINEPREFIX=~/data/Vidya/Wine/64bit/aoe2voobly/ STAGING_WRITECOPY=1 wine ~/data/Vidya/Wine/64bit/aoe2voobly/drive_c/Program\ Files\ \(x86\)/Voobly/voobly.exe'
 
 # Safety Nets
 alias cp='cp -i -v'
@@ -105,3 +117,6 @@ alias off='sudo shutdown -h now'
 alias path='echo $PATH | tr ":" "\n"'
 alias ps='ps auxf'
 alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
+alias pwrmax='echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+alias pwrmin='echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+alias pwrchk='cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor'

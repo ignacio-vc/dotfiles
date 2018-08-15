@@ -1,4 +1,5 @@
-# Ignacio Vargas' .bashrc
+# .bashrc
+# Runs when starting any new terminal.
 
 # If not running interactively, don't do anything
 case $- in
@@ -116,4 +117,5 @@ stfu() {
         ( "$@" & disown -h ) &>/dev/null
     }
 
+# Gruvbox 256 color palette
 . "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"

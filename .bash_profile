@@ -1,4 +1,5 @@
-# Ignacio Vargas' .bash_profile
+# .bash_profile
+# Runs on login.
 
 default_dir=/usr/local/lib/
 

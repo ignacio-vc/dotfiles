@@ -1,3 +1,6 @@
+# .Xresources
+# Holds colors and formatting options
+
 rofi.lines:                 3
 rofi.hide-scrollbar:        true
 rofi.width:                 30
@@ -9,9 +12,9 @@ Xft.antialias:              1
 Xft.autohint:               0
 Xft.dpi:                    96
 Xft.hinting:                1
-Xft.hintstyle:              hintfull
+Xft.hintstyle:              hintslight
 Xft.lcdfilter:              lcddefault
-Xft.rgba:                   rgb
+Xft.rgba:                   none
 
 !st.font:                Inconsolata_g:size=14
 !st.bold_font:          0
