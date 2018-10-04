@@ -39,6 +39,7 @@ font pango:                     SFNS Display, FontAwesome 12
 
 exec --no-startup-id            compton
 exec --no-startup-id            unclutter
+exec_always --no-startup-id     ~/.config/redshift.sh
 exec_always --no-startup-id     ~/.config/polybar/launch.sh
 exec_always --no-startup-id     setxkbmap -option caps:escape
 bindsym Menu                    exec --no-startup-id xmodmap -e 'keycode 135 = Super_R' 
@@ -90,8 +91,8 @@ bindsym $mod+q                  focus parent
 bindsym $mod+a                  focus child
 
 #bindsym $mod+s                  layout stacking
-#bindsym $mod+w                  layout tabbed
-#bindsym $mod+t                  layout toggle split
+bindsym $mod+w                  layout tabbed
+bindsym $mod+t                  layout toggle split
 #bindsym $mod+space focus        mode_toggle
 
 ###---Restart Bindings---###
@@ -104,23 +105,24 @@ bindsym $mod+Shift+p            exec --no-startup-id ~/.config/polybar/launch.sh
 
 bindsym $mod+d                  exec rofi -run-list-command ". ~/.config/scripts/fetch_bash_aliases.sh" -run-command "/bin/bash -i -c '{cmd}'" -rnow -show run
 bindsym $mod+r                  exec st ranger
-bindsym $mod+e                  exec st mutt
-bindsym $mod+t                  exec st htop 
+#bindsym $mod+e                  exec st mutt
 
 bindsym $mod+Return             exec st
-bindsym Print                   exec scrot
-bindsym Shift+Print             exec scrot -u
-bindsym Ctrl+Shift+Print        exec scrot -s
+bindsym Print                   exec scrot -e 'mv $f ~/Pictures/Screenshots/'
+bindsym Shift+Print             exec scrot -u -e 'mv $f ~/Pictures/Screenshots/'
+bindsym Ctrl+Shift+Print        exec scrot -s 'mv $f ~/Pictures/Screenshots/'
 
 bindsym $mod+Shift+e            exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+x            exec i3lock --color "$bg-color"
 bindsym $mod+Shift+f            exec $browser
 bindsym $mod+Shift+a            exec pavucontrol
 bindsym $mod+Shift+m            exec $music
+bindsym $mod+Shift+n            exec ~/Downloads/DeezloaderRemix/dist/linux-unpacked/deezloader-rmx 
 bindsym $mod+Shift+v            exec lutris
 bindsym $mod+Shift+b            exec gulp run --cwd ~/Downloads/popcorn-desktop
 bindsym $mod+Shift+w            exec wicd-gtk -n
 bindsym $mod+Shift+y            exec keepassxc
+bindsym $mod+Shift+t            exec st -e htop
 bindsym $mod+Shift+u            exec firejail discord
 bindsym $mod+Shift+i            exec telegram-desktop
 bindsym $mod+Shift+o            exec wire-desktop
@@ -173,37 +175,33 @@ bindsym $mod+Shift+9            move container to workspace $ws9
 bindsym $mod+Shift+0            move container to workspace $ws10
 
 assign [title="ranger"]         $ws3
-assign [title="htop"]           $ws3
-assign [title="ncmpcpp"]        $ws6
 
-assign [class="st-256color"]    $ws1
-assign [class="Firefox"]        $ws2
-assign [class="pcmanfm-qt"]     $ws3
-assign [class="gzdoom"]         $ws3
-assign [class="Popcorn-Time"]   $ws3
-assign [class="Steam"]          $ws4
-assign [class="aok hd.exe"]     $ws5
-assign [class="audacity"]       $ws6
-assign [class="inkscape"]       $ws7
-assign [class="discord"]        $ws7
-assign [class="keepassxc"]      $ws8
-assign [class="Wicd-client.py"] $ws8
-assign [class="Telegram"]       $ws9
-assign [class="Wire"]           $ws10
+assign [class="st-256color"]        $ws1
+assign [class="Firefox"]            $ws2
+assign [class="pcmanfm-qt"]         $ws3
+assign [class="Popcorn-Time"]       $ws3
+assign [class="Deezloader Remix"]   $ws3
+assign [class="gzdoom"]             $ws4
+assign [class="Steam"]              $ws5
+assign [class="discord"]            $ws7
+assign [class="keepassxc"]          $ws8
+assign [class="Wicd-client.py"]     $ws8
+assign [class="Transmission-gtk"]   $ws8
+assign [class="Telegram"]           $ws9
+assign [class="Wire"]               $ws10
 
-for_window [class="explorer.exe"]       move container to workspace $ws5
-for_window [class="Lutris"]             move container to workspace $ws6
+for_window [class="Dwarf Therapist"]    move container to workspace $ws3
+for_window [class="Lutris"]             move container to workspace $ws4
 for_window [title="GIMP Startup"]       move container to workspace $ws6
 for_window [class="Gimp"]               move container to workspace $ws6
-for_window [class="Dwarf Therapist"]    move container to workspace $ws3
-for_window [class="Wine"]               move container to workspace $ws5
+for_window [class="explorer.exe"]       move container to workspace $ws6
+for_window [class="Wine"]               move container to workspace $ws6
 
 for_window [class="Wine"]               floating enable
 for_window [class="Pavucontrol"]        floating enable
 for_window [class="Dwarf_Fortress"]     floating enable
 for_window [window_role="gimp-dock"]    floating disable; move left; resize shrink width 50 px or 50ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
-
 for_window [class="^Steam$" title="^Friends List$"]                                     floating enable
 for_window [class="^Steam$" title="Steam - News"]                                       floating enable
 for_window [class="^Steam$" title=".* - Chat"]                                          floating enable
