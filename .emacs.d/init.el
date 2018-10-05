@@ -1,4 +1,4 @@
-;;; init.el -- Ignacio Vargas' Emacs configuration
+;;; init.el -- Emacs configuration
 ;-*-Emacs-Lisp-*-
 
 (package-initialize)

@@ -1,4 +1,5 @@
-# Ignacio Vargas' .bashrc
+# .bashrc
+# Runs when starting any new terminal.
 
 # If not running interactively, don't do anything
 case $- in
@@ -26,8 +27,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # Set history length
-HISTSIZE=10000
-HISTFILESIZE=20000
+HISTSIZE=100000
+HISTFILESIZE=200000
 
 # Check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS
@@ -116,4 +117,5 @@ stfu() {
         ( "$@" & disown -h ) &>/dev/null
     }
 
+# Gruvbox 256 color palette
 . "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"

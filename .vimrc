@@ -1,5 +1,5 @@
 " vim: fdm=marker:foldlevel=0 foldenable sw=4 ts=4 sts=4
-" Ignacio Vargas' .vimrc
+" Vim configuration
 
 " {{{ Clear Autocommands
 

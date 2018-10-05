@@ -1,4 +1,4 @@
-# Ignacio Vargas' .bash_aliases
+# .bash_aliases
 
 # Aptitude Package Manager
 alias sau='sudo aptitude update'
@@ -29,11 +29,11 @@ alias palette='(x=`tput op` y=`printf %76s`;for i in {0..256};do o=00$i;echo -e 
 # Directories
 alias dirs='dirs -v'
 alias mkdir='mkdir -pv'
-alias l='ls -xFX --group-directories-first'
+alias l='ls -xF --group-directories-first'
+alias la='ls -xFX --group-directories-first'
 alias ld='ls -hoFX --group-directories-first'
 alias lh='ls -xdFX .* --group-directories-first'
 alias lhd='ls -hodFX .* --group-directories-first'
-alias la='ls -xAFX --group-directories-first'
 alias lad='ls -hoAFX --group-directories-first'
 alias ll='ls -hlAFX --group-directories-first'
 
@@ -47,7 +47,7 @@ alias v='vim'
 alias gv='gvim'
 alias e='emacs'
 alias ,a='vim $HOME/.bash_aliases'
-alias ,p='vim $HOME/.bash_profile'
+alias ,p='vim $HOME/.profile'
 alias ,y='vim $HOME/.config/polybar/config'
 alias ,b='vim $HOME/.bashrc'
 alias ,i='vim $HOME/.config/i3/config'
@@ -59,7 +59,7 @@ alias ,gv='vim $HOME/.gvimrc'
 alias ,s='vim $HOME/.ssh/config'
 alias ,t='vim $HOME/.tmux.conf'
 alias ,v='vim $HOME/.vimrc'
-alias ,x='vim $HOME/.xinitrc'
+alias ,x='vim $HOME/.xsession'
 alias ,r='vim $HOME/.Xresources'
 alias diff='vimdiff'
 alias gdiff='gvimdiff'
@@ -71,24 +71,33 @@ alias ports='netstat -tulanp'
 alias wget='wget -c --content-disposition'
 alias yt="youtube-dl --add-metadata -ic" # Download video link
 alias yta="youtube-dl --add-metadata -xic" # Download only audio
-alias YT="youtube-viewer"
 alias ethspeed="speedometer -r eno1"
 alias wifispeed="speedometer -r wlp3s0"
 alias tpbs="clear && figlet -c TPB Search && ~/.config/Scripts/tpb.sh" # Pirate Bay search
 
 # Programs
-alias julia='$HOME/julia/julia'
-alias julia-dev='$HOME/julia-dev/julia'
+alias julia-stable='$HOME/data/julia-stable/julia'
+alias julia-unstable='$HOME/data/julia-unstable/julia'
+alias julia-oldstable='$HOME/data/julia-oldstable/julia'
 alias jupyter='$HOME/.local/bin/jupyter-notebook'
 alias bw='wal -ci ~/.config/wallpaper.jpg'
-alias cap='ncdu'
-alias top='htop'
+
+# Entretainment
+alias doom='crispy-doom -iwad ~/Vidya/Native/Doom/IWADS/doom.wad'
+alias doom2='crispy-doom -iwad ~/Vidya/Native/Doom/IWADS/doom2.wad'
+alias tnt='gzdoom -iwad tnt -file smoothdoom.pk3 doomsfx healthwarning.pk3 ~/Vidya/Native/Doom/MusicPacks/tnt-music/'
+alias wads='clear && printf "DOOM WADs\n" && printf "\nIWADS\n" && l ~/Vidya/Native/Doom/IWADS/ && printf "\nPWADS/Cosmetic\n" && l ~/Vidya/Native/Doom/PWADS/Cosmetic && printf "\nPWADS/Expansions\n" && l ~/Vidya/Native/Doom/PWADS/Expansions && printf "\nPWADS/Gameplay\n" && l ~/Vidya/Native/Doom/PWADS/Gameplay && printf "\nPWADS/Maps\n" && l ~/Vidya/Native/Doom/PWADS/Maps && printf "\nPWADS/TotalConversions\n" && l ~/Vidya/Native/Doom/PWADS/TotalConversions && printf "\n"'
+alias quake='quakespasm -basedir ~/Vidya/Native/Quake/'
+alias arcane='quakespasm -basedir ~/Vidya/Native/Quake/ -game ad'
+alias xcom='~/Vidya/Native/OpenXcom/OpenXcom*'
+alias dorf='st -e $HOME/Vidya/Native/DwarfFortress/df_linux/dfhack & st -e $HOME/Vidya/Native/DwarfFortress/DwarfTherapist'
 
 # Safety Nets
 alias cp='cp -i -v'
 alias del='rm -I -v  --preserve-root'
 alias grp='chgrp --preserve-root'
 alias mod='chmod --preserve-root'
+alias mx='mod +x'
 alias mv='mv -i -v'
 alias ln='ln -i -v'
 alias own='chown --preserve-root'
@@ -97,6 +106,7 @@ alias own='chown --preserve-root'
 alias df='pydf'
 alias dft='\df -Tha --total'
 alias du='du -ach | sort -h'
+alias top='htop'
 alias free='free -mt'
 alias ka='killall'
 alias mount='mount | column -t'
@@ -105,3 +115,7 @@ alias off='sudo shutdown -h now'
 alias path='echo $PATH | tr ":" "\n"'
 alias ps='ps auxf'
 alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
+alias pwrmax='echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+alias pwrmin='echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+alias pwrchk='cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor'
+alias reportnames='printf "\nMy DISPLAY is $DISPLAY \nMy XDG_VTNR is $XDG_VTNR \n\n"'

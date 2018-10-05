@@ -1,13 +1,14 @@
-# Ignacio Vargas' .bash_profile
+# .profile
+# Runs on login.
 
-default_dir=/usr/local/lib/
+#default_dir=/usr/local/lib/
 
-if [ -n "$PS1" ]; then
-	PS1='\u@\h(\#)\$ '
-	IGNOREEOF=3
-fi
+#if [ -n "$PS1" ]; then
+#	PS1='\u@\h(\#)\$ '
+#	IGNOREEOF=3
+#fi
 
-LOGIN_SHELL=true
+#LOGIN_SHELL=true
 
 if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
